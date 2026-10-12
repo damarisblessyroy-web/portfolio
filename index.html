@@ -2,341 +2,996 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N. Damaris Blessy | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1020">
+<title>N. Damaris Blessy | Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-        html {
-            scroll-behavior: smooth;
-        }
+:root {
+  --bg: #080b18;
+  --panel: rgba(20,27,51,.78);
+  --line: rgba(177,169,255,.18);
+  --text: #f7f7ff;
+  --muted: #b5bdd6;
+  --purple: #b6a4ff;
+  --cyan: #75e7ef;
+  --green: #baf7c5;
+  --shadow: 0 24px 70px rgba(0,0,0,.28);
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b1020;
-            color: #f5f5ff;
-            line-height: 1.6;
-        }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: auto;
-        }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
 
-        header {
-            background: #151e34;
-            padding: 20px 0;
-            border-bottom: 1px solid #303b59;
-        }
+body {
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(112,84,255,.22), transparent 34%),
+    radial-gradient(ellipse at 88% 25%, rgba(47,202,219,.13), transparent 30%),
+    radial-gradient(ellipse at 70% 90%, rgba(255,108,181,.09), transparent 28%),
+    #080b18;
+}
 
-        nav h2, .highlight {
-            color: #b8a5ff;
-        }
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .12;
+  background-image: radial-gradient(#a9b3ff .6px, transparent .6px);
+  background-size: 22px 22px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 15px;
-        }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-        section {
-            padding: 40px 0;
-        }
+.container {
+  width: min(1100px, 91%);
+  margin-inline: auto;
+}
 
-        h1 {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
+/* Navigation */
 
-        h2 {
-            margin-bottom: 18px;
-        }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(8,11,24,.78);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
 
-        p {
-            color: #bdc6dd;
-            margin: 10px 0;
-        }
+nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-        .card {
-            background: #151e34;
-            padding: 24px;
-            border-radius: 14px;
-            border: 1px solid #303b59;
-            margin-top: 18px;
-        }
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
 
-        .skills {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-        }
+.logo span {
+  color: var(--purple);
+}
 
-        .tag {
-            display: inline-block;
-            background: #292345;
-            color: #d8ceff;
-            padding: 5px 10px;
-            border-radius: 20px;
-            margin: 5px 4px 0 0;
-            font-size: 13px;
-        }
+.links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
-        button {
-            background: #252f4b;
-            color: white;
-            border: 1px solid #536080;
-            padding: 10px 14px;
-            border-radius: 8px;
-            margin: 5px 3px;
-            cursor: pointer;
-        }
+.links a {
+  font-size: .92rem;
+  color: var(--muted);
+  padding: 9px 13px;
+  border-radius: 999px;
+  transition: .2s;
+}
 
-        button:hover,
-        button.active {
-            background: #b8a5ff;
-            color: #111827;
-        }
+.links a:hover {
+  color: white;
+  background: rgba(182,164,255,.12);
+}
 
-        .output {
-            background: #050911;
-            color: #baf7c5;
-            padding: 20px;
-            margin-top: 18px;
-            border-radius: 10px;
-            border: 1px solid #35415f;
-            white-space: pre;
-            overflow-x: auto;
-            font-family: Consolas, monospace;
-            font-size: 14px;
-            min-height: 220px;
-        }
+/* Hero section */
 
-        .output-title {
-            color: #b8a5ff;
-            margin-top: 15px;
-        }
+.hero {
+  padding: 90px 0 64px;
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  align-items: center;
+  gap: 45px;
+  min-height: 570px;
+}
 
-        footer {
-            text-align: center;
-            padding: 22px;
-            border-top: 1px solid #303b59;
-        }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--line);
+  background: rgba(182,164,255,.08);
+  color: #d8d0ff;
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: .83rem;
+  font-weight: 600;
+}
 
-        a {
-            color: #b8a5ff;
-        }
+.dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 14px var(--cyan);
+}
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 30px;
-            }
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.18;
+}
 
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+h1 {
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  letter-spacing: -2.5px;
+  margin: 23px 0 18px;
+}
+
+.gradient {
+  background: linear-gradient(100deg, var(--purple), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  font-size: 1.08rem;
+  color: var(--muted);
+  max-width: 650px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: .94rem;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: linear-gradient(110deg, #b6a4ff, #80e7ef);
+  color: #101327;
+  border: 0;
+  box-shadow: 0 12px 35px rgba(133,153,255,.2);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,.035);
+  color: var(--text);
+}
+
+/* Animated profile */
+
+.profile-art {
+  position: relative;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+}
+
+.orb {
+  width: min(290px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 36% 64% 58% 42% / 42% 39% 61% 58%;
+  background: linear-gradient(
+    135deg,
+    rgba(182,164,255,.25),
+    rgba(117,231,239,.11)
+  );
+  border: 1px solid rgba(182,164,255,.35);
+  box-shadow:
+    inset 0 0 55px rgba(182,164,255,.12),
+    0 0 85px rgba(112,84,255,.14);
+  display: grid;
+  place-items: center;
+  animation: float 7s ease-in-out infinite;
+}
+
+.initials {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: -5px;
+  background: linear-gradient(130deg, #fff, var(--purple), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.float-card {
+  position: absolute;
+  background: rgba(17,24,46,.88);
+  border: 1px solid var(--line);
+  padding: 12px 15px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  font-size: .88rem;
+  backdrop-filter: blur(12px);
+}
+
+.float-card strong {
+  display: block;
+  color: var(--cyan);
+  font-size: 1rem;
+}
+
+.fc-one {
+  top: 16%;
+  right: -2%;
+}
+
+.fc-two {
+  bottom: 14%;
+  left: -3%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+/* Statistics */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.stat {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.035);
+  padding: 18px;
+  border-radius: 15px;
+}
+
+.stat strong {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  color: var(--cyan);
+}
+
+.stat span {
+  font-size: .83rem;
+  color: var(--muted);
+}
+
+/* Common sections */
+
+section {
+  padding: 55px 0;
+}
+
+.section-head {
+  margin-bottom: 25px;
+}
+
+.kicker {
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: -.8px;
+  margin-bottom: 10px;
+}
+
+.section-head p {
+  color: var(--muted);
+  max-width: 700px;
+}
+
+.panel, .card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+/* About */
+
+.about-panel {
+  padding: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.detail {
+  padding: 15px;
+  border-radius: 13px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.055);
+}
+
+.detail small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.detail strong {
+  font-size: 1rem;
+}
+
+/* Skills */
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  padding: 24px;
+  transition: transform .22s, border-color .22s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(182,164,255,.55);
+}
+
+.icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(182,164,255,.2),
+    rgba(117,231,239,.12)
+  );
+  border: 1px solid var(--line);
+}
+
+.card h3 {
+  font-size: 1.12rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: .94rem;
+  color: var(--muted);
+}
+
+.tags {
+  margin-top: 15px;
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: .77rem;
+  color: #ddd7ff;
+  background: rgba(182,164,255,.09);
+  border: 1px solid rgba(182,164,255,.18);
+  border-radius: 999px;
+  padding: 5px 9px;
+}
+
+/* Project */
+
+.project {
+  padding: 28px;
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.project-label {
+  font-size: .8rem;
+  color: var(--cyan);
+  background: rgba(117,231,239,.08);
+  border: 1px solid rgba(117,231,239,.2);
+  border-radius: 999px;
+  padding: 6px 11px;
+}
+
+.project-desc {
+  max-width: 760px;
+  margin: 12px 0 22px;
+}
+
+.output-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.output-buttons button {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.035);
+  color: var(--muted);
+  padding: 9px 13px;
+  border-radius: 10px;
+  font-size: .86rem;
+  transition: .2s;
+}
+
+.output-buttons button:hover,
+.output-buttons button.active {
+  color: #111327;
+  background: linear-gradient(110deg, var(--purple), var(--cyan));
+  border-color: transparent;
+}
+
+/* Terminal window */
+
+.console {
+  overflow: hidden;
+  border: 1px solid rgba(117,231,239,.22);
+  border-radius: 15px;
+  background: #050813;
+}
+
+.console-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 15px;
+  background: rgba(255,255,255,.035);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.traffic {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff7b91;
+}
+
+.traffic:nth-child(2) {
+  background: #ffd36f;
+}
+
+.traffic:nth-child(3) {
+  background: #75e7a1;
+}
+
+.console-name {
+  font-size: .78rem;
+  color: var(--muted);
+  margin-left: 7px;
+}
+
+.output-title {
+  color: var(--cyan);
+  font-size: .85rem;
+  font-weight: 700;
+  padding: 14px 18px 0;
+}
+
+.output {
+  padding: 12px 18px 22px;
+  color: var(--green);
+  white-space: pre;
+  overflow-x: auto;
+  min-height: 220px;
+  font: 13px/1.75 Consolas, Monaco, monospace;
+}
+
+.note {
+  font-size: .82rem;
+  color: #8994b3;
+  margin-top: 13px;
+}
+
+/* Contact */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.contact-card .icon-box {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.contact-card a {
+  color: var(--cyan);
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 35px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 25px 0;
+  text-align: center;
+  color: #8d97b5;
+  font-size: .88rem;
+}
+
+footer span {
+  color: var(--purple);
+}
+
+/* Responsive design */
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 65px;
+    gap: 10px;
+  }
+
+  .profile-art {
+    min-height: 300px;
+  }
+
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fc-one {
+    right: 8%;
+  }
+
+  .fc-two {
+    left: 8%;
+  }
+}
+
+@media (max-width: 560px) {
+  nav {
+    padding: 13px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .links {
+    gap: 2px;
+  }
+
+  .links a {
+    padding: 8px;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat {
+    padding: 12px;
+  }
+
+  .about-panel,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project {
+    padding: 18px;
+  }
+
+  .output {
+    font-size: 12px;
+    padding: 12px;
+  }
+
+  .float-card {
+    font-size: .78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <nav class="container">
-        <h2>Damaris.</h2>
+  <nav class="container">
+    <a class="logo" href="#home">Damaris<span>.</span></a>
 
-        <div>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#project">Project</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#project">Project</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 </header>
 
-<!-- HOME SECTION -->
-<section class="container" id="home">
-    <h1>Hi, I'm <span class="highlight">N. Damaris Blessy</span></h1>
+<main>
 
-    <p>B.Sc. Computer Science Student</p>
-    <p>Bishop Heber College | 2026–2029</p>
+  <!-- HERO SECTION -->
+  <section class="hero container" id="home">
+    <div>
+      <div class="pill">
+        <span class="dot"></span>
+        B.Sc. Computer Science · 2026–2029
+      </div>
 
-    <div class="card">
-        <h2>Welcome to My Portfolio</h2>
+      <h1>
+        Curious mind.<br>
+        <span class="gradient">Future cloud engineer.</span>
+      </h1>
 
-        <p>
-            I am interested in programming, problem-solving,
-            data analysis, editing and new technologies.
-        </p>
+      <p>
+        Hi, I'm <strong>N. Damaris Blessy</strong>, a student at
+        Bishop Heber College who enjoys Python, problem-solving,
+        data analysis, creative editing and discovering new technologies.
+      </p>
 
-        <p>
-            My career goal is to become a
-            <strong class="highlight">Cloud Computing Engineer.</strong>
-        </p>
-
-        <a href="#project">
-            <button type="button">View My First Project</button>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#project">
+          Explore my project <span>↘</span>
         </a>
-    </div>
-</section>
 
-<!-- ABOUT SECTION -->
-<section class="container" id="about">
-    <h2>About <span class="highlight">Me</span></h2>
+        <a class="btn btn-secondary" href="#contact">
+          Let's connect <span>↗</span>
+        </a>
+      </div>
 
-    <div class="card">
-        <p><strong>Name:</strong> N. Damaris Blessy</p>
-        <p><strong>College:</strong> Bishop Heber College</p>
-        <p><strong>Course:</strong> B.Sc. Computer Science</p>
-        <p><strong>Academic Years:</strong> 2026–2029</p>
-        <p><strong>Career Goal:</strong> Cloud Computing Engineer</p>
-    </div>
-</section>
-
-<!-- SKILLS SECTION -->
-<section class="container" id="skills">
-    <h2>My <span class="highlight">Skills</span></h2>
-
-    <div class="skills">
-
-        <div class="card">
-            <h3>Core Technical Skills</h3>
-            <p>
-                Python, C programming fundamentals,
-                problem-solving, programming logic
-                and algorithms.
-            </p>
-
-            <span class="tag">Python</span>
-            <span class="tag">Problem Solving</span>
-            <span class="tag">C Programming</span>
+      <div class="stats">
+        <div class="stat">
+          <strong>2026–29</strong>
+          <span>Academic journey</span>
         </div>
 
-        <div class="card">
-            <h3>Domain-Specific Advanced Skills</h3>
-            <p>
-                I am interested in cloud computing,
-                data analysis, data visualisation
-                and emerging technologies.
-            </p>
-
-            <span class="tag">Cloud Computing</span>
-            <span class="tag">Data Analysis</span>
-            <span class="tag">Technology</span>
+        <div class="stat">
+          <strong>Python</strong>
+          <span>Learning & building</span>
         </div>
 
-        <div class="card">
-            <h3>Crucial Workplace & Soft Skills</h3>
-            <p>
-                Communication, teamwork, adaptability,
-                time management, creative thinking
-                and editing.
-            </p>
-
-            <span class="tag">Teamwork</span>
-            <span class="tag">Creativity</span>
-            <span class="tag">Editing</span>
+        <div class="stat">
+          <strong>Cloud</strong>
+          <span>Career aspiration</span>
         </div>
-
+      </div>
     </div>
-</section>
 
-<!-- FIRST PROJECT SECTION -->
-<section class="container" id="project">
-    <h2>My First <span class="highlight">Project</span></h2>
+    <div class="profile-art" aria-label="Decorative initials artwork">
+      <div class="orb">
+        <div class="initials">DB</div>
+      </div>
 
-    <div class="card">
-        <h3>Student Management System</h3>
+      <div class="float-card fc-one">
+        <strong>01 / Project</strong>
+        Student Management
+      </div>
 
-        <p><strong>Programming Language:</strong> C</p>
+      <div class="float-card fc-two">
+        <strong>Always learning ✦</strong>
+        Code · Create · Grow
+      </div>
+    </div>
+  </section>
 
+  <!-- ABOUT SECTION -->
+  <section class="container" id="about">
+    <div class="section-head">
+      <div class="kicker">A little about me</div>
+      <h2>Building my <span class="gradient">next chapter.</span></h2>
+      <p>
+        I'm developing my technical foundation while exploring
+        the technologies that inspire me.
+      </p>
+    </div>
+
+    <div class="panel about-panel">
+      <div class="detail">
+        <small>Full name</small>
+        <strong>N. Damaris Blessy</strong>
+      </div>
+
+      <div class="detail">
+        <small>College</small>
+        <strong>Bishop Heber College</strong>
+      </div>
+
+      <div class="detail">
+        <small>Programme</small>
+        <strong>B.Sc. Computer Science</strong>
+      </div>
+
+      <div class="detail">
+        <small>Career goal</small>
+        <strong>Cloud Computing Engineer</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="container" id="skills">
+    <div class="section-head">
+      <div class="kicker">My learning toolkit</div>
+      <h2>Skills I'm <span class="gradient">growing.</span></h2>
+      <p>
+        These are the three skill areas I'm working on
+        and developing over time.
+      </p>
+    </div>
+
+    <div class="skill-grid">
+
+      <article class="card">
+        <div class="icon-box">⌘</div>
+        <h3>Core Technical Skills</h3>
         <p>
-            This project includes administrator login,
-            student registration, examination results,
-            fee management, student searching,
-            reports and file management.
+          Building a strong foundation in programming,
+          logical thinking and solving problems step by step.
         </p>
 
-        <h3 style="margin-top: 22px;">Sample Program Output</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">C Programming</span>
+          <span class="tag">Problem Solving</span>
+        </div>
+      </article>
 
+      <article class="card">
+        <div class="icon-box">◈</div>
+        <h3>Domain-Specific Advanced Skills</h3>
         <p>
-            Click a button to view the sample console output
-            for each module of my C programming project.
+          Exploring cloud platforms, data analysis and
+          the fast-changing world of technology.
         </p>
 
-        <div id="buttons">
-            <button class="active" data-type="login">Login</button>
-            <button data-type="menu">Main Menu</button>
-            <button data-type="student">Registration</button>
-            <button data-type="exam">Exam Result</button>
-            <button data-type="fee">Fee Status</button>
-            <button data-type="search">Search</button>
-            <button data-type="report">Reports</button>
-            <button data-type="file">File Management</button>
+        <div class="tags">
+          <span class="tag">Cloud Computing</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">New Technologies</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon-box">✳</div>
+        <h3>Crucial Workplace &amp; Soft Skills</h3>
+        <p>
+          Strengthening communication, collaboration,
+          creativity and the ability to adapt and learn.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Teamwork</span>
+          <span class="tag">Editing</span>
+          <span class="tag">Adaptability</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PROJECT SECTION -->
+  <section class="container" id="project">
+    <div class="section-head">
+      <div class="kicker">Featured work · 01</div>
+      <h2>My first <span class="gradient">project.</span></h2>
+      <p>A sample-output showcase for my C programming project.</p>
+    </div>
+
+    <div class="panel project">
+
+      <div class="project-top">
+        <div>
+          <h3>Student Management System</h3>
+          <p style="margin-top:5px;color:var(--muted)">
+            A console-based C application for managing student records.
+          </p>
         </div>
 
-        <h4 class="output-title" id="outputTitle">
-            Login — Sample Output
-        </h4>
+        <span class="project-label">C Programming</span>
+      </div>
 
-        <pre class="output" id="output"></pre>
+      <p class="project-desc">
+        The program includes administrator login, student registration,
+        examination marks and results, fee management, student search,
+        reports and file management. Choose a module to preview its
+        sample console output below.
+      </p>
 
-        <p>
-            Note: These are illustrative sample outputs.
-            The website displays examples and does not
-            execute the original C program.
-        </p>
+      <div class="output-buttons" id="outputButtons">
+        <button type="button" data-output="login"
+          class="active" aria-pressed="true">Login</button>
+
+        <button type="button" data-output="menu"
+          aria-pressed="false">Main Menu</button>
+
+        <button type="button" data-output="student"
+          aria-pressed="false">Registration</button>
+
+        <button type="button" data-output="exam"
+          aria-pressed="false">Exam Result</button>
+
+        <button type="button" data-output="fee"
+          aria-pressed="false">Fee Status</button>
+
+        <button type="button" data-output="search"
+          aria-pressed="false">Search</button>
+
+        <button type="button" data-output="report"
+          aria-pressed="false">Reports</button>
+
+        <button type="button" data-output="file"
+          aria-pressed="false">File Management</button>
+      </div>
+
+      <div class="console">
+        <div class="console-head">
+          <span class="traffic"></span>
+          <span class="traffic"></span>
+          <span class="traffic"></span>
+          <span class="console-name">student-management-system.exe</span>
+        </div>
+
+        <div class="output-title" id="outputTitle">
+          Login — sample output
+        </div>
+
+        <pre class="output" id="output" aria-live="polite"></pre>
+      </div>
+
+      <p class="note">
+        Sample values are illustrative. This website previews output
+        examples; it does not execute the C program or read its data files.
+      </p>
+
     </div>
-</section>
+  </section>
 
-<!-- CONTACT SECTION -->
-<section class="container" id="contact">
-    <h2>Contact <span class="highlight">Me</span></h2>
+  <!-- CONTACT SECTION -->
+  <section class="container" id="contact">
+    <div class="section-head">
+      <div class="kicker">Say hello</div>
+      <h2>Let's <span class="gradient">connect.</span></h2>
+      <p>
+        I'm excited to learn, collaborate and explore opportunities
+        in technology.
+      </p>
+    </div>
 
-    <div class="card">
-        <p>
-            <strong>Email:</strong>
+    <div class="contact-grid">
+
+      <div class="card contact-card">
+        <div class="icon-box">✉</div>
+        <div>
+          <h3>Email me</h3>
+          <p>
             <a href="mailto:damarisblessyroy@gmail.com">
-                damarisblessyroy@gmail.com
+              damarisblessyroy@gmail.com
             </a>
-        </p>
+          </p>
+        </div>
+      </div>
 
-        <p>
-            <strong>LinkedIn:</strong>
+      <div class="card contact-card">
+        <div class="icon-box">↗</div>
+        <div>
+          <h3>LinkedIn</h3>
+          <p>
             <a
-                href="https://www.linkedin.com/in/damaris-blessy-342b01352/"
-                target="_blank"
-                rel="noopener noreferrer">
-                Visit My LinkedIn Profile
+              href="https://www.linkedin.com/in/damaris-blessy-342b01352/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Visit my LinkedIn profile
             </a>
-        </p>
+          </p>
+        </div>
+      </div>
+
     </div>
-</section>
+  </section>
+
+</main>
 
 <footer>
-    <p>© 2026 N. Damaris Blessy | Portfolio Website</p>
+  <div class="container">
+    Designed with curiosity by
+    <span>N. Damaris Blessy</span> · © 2026
+  </div>
 </footer>
 
 <script>
-    const outputs = {
+const samples = {
 
-        login: `==============================
+  login: `==============================
    STUDENT MANAGEMENT SYSTEM
 ==============================
             LOGIN
@@ -348,7 +1003,7 @@ Login successful!
 
 Press Enter to continue...`,
 
-        menu: `=== Student Management System ===
+  menu: `=== Student Management System ===
  1. Login (already logged in)
  2. Student Registration
  3. Examination Module
@@ -360,7 +1015,7 @@ Press Enter to continue...`,
 
 Enter your choice: _`,
 
-        student: `=== Student Registration ===
+  student: `=== Student Registration ===
  1. Add new student
  2. View all students
  3. Update student
@@ -378,8 +1033,7 @@ Enter total fee amount: 25000
 
 Student registered successfully.`,
 
-        exam: `=== Examination Result ===
-
+  exam: `=== Examination Module ===
 Enter roll number: 101
 
 --- Result for Anu (Roll 101) ---
@@ -393,8 +1047,7 @@ Enter roll number: 101
   Percentage : 87.20%
   Grade      : A  (PASS)`,
 
-        fee: `=== Fee Management ===
-
+  fee: `=== Fee Management ===
 Enter roll number: 101
 
   Name      : Anu
@@ -403,7 +1056,7 @@ Enter roll number: 101
   Due       : 15000.00
   Status    : PENDING`,
 
-        search: `=== Search Module ===
+  search: `=== Search Module ===
  1. Search by roll number
  2. Search by name
  3. Search by department
@@ -418,7 +1071,7 @@ Enter roll number: 101
   Year       : 1
   Phone      : 9876543210`,
 
-        report: `=== Exam Result Report ===
+  report: `=== Exam Result Report ===
 
 Rank  Roll     Name     Total   Percent  Grade
 ------------------------------------------------
@@ -428,7 +1081,7 @@ Appeared: 1
 Passed: 1
 Failed: 0`,
 
-        file: `=== File Management ===
+  file: `=== File Management ===
  1. Save data to files
  2. Reload data from files
  3. Export student list to text file (students.txt)
@@ -439,42 +1092,42 @@ Enter your choice: 1
 Data saved.
 
 Press Enter to continue...`
-    };
+};
 
-    const titles = {
-        login: "Login — Sample Output",
-        menu: "Main Menu — Sample Output",
-        student: "Student Registration — Sample Output",
-        exam: "Examination Result — Sample Output",
-        fee: "Fee Status — Sample Output",
-        search: "Search Module — Sample Output",
-        report: "Exam Result Report — Sample Output",
-        file: "File Management — Sample Output"
-    };
+const titles = {
+  login: "Login — sample output",
+  menu: "Main Menu — sample output",
+  student: "Student Registration — sample output",
+  exam: "Examination Result — sample output",
+  fee: "Fee Status — sample output",
+  search: "Search Module — sample output",
+  report: "Exam Result Report — sample output",
+  file: "File Management — sample output"
+};
 
-    const output = document.getElementById("output");
-    const outputTitle = document.getElementById("outputTitle");
-    const buttons = document.querySelectorAll("#buttons button");
+const output = document.getElementById("output");
+const outputTitle = document.getElementById("outputTitle");
+const buttons = document.querySelectorAll("[data-output]");
 
-    function showOutput(type) {
-        output.textContent = outputs[type];
-        outputTitle.textContent = titles[type];
+function showOutput(type) {
+  output.textContent = samples[type];
+  outputTitle.textContent = titles[type];
 
-        buttons.forEach(function(button) {
-            const selected = button.dataset.type === type;
+  buttons.forEach(button => {
+    const active = button.dataset.output === type;
 
-            button.classList.toggle("active", selected);
-            button.setAttribute("aria-pressed", selected);
-        });
-    }
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
 
-    buttons.forEach(function(button) {
-        button.addEventListener("click", function() {
-            showOutput(button.dataset.type);
-        });
-    });
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    showOutput(button.dataset.output);
+  });
+});
 
-    showOutput("login");
+showOutput("login");
 </script>
 
 </body>
