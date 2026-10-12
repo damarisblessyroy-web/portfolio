@@ -2,173 +2,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>N. Damaris Blessy | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N. Damaris Blessy | Portfolio</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #0b1020;
-    color: #f5f5ff;
-    line-height: 1.6;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: #f5f5ff;
+            line-height: 1.6;
+        }
 
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-}
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+        }
 
-header {
-    background: #151e34;
-    padding: 20px 0;
-    border-bottom: 1px solid #303b59;
-}
+        header {
+            background: #151e34;
+            padding: 20px 0;
+            border-bottom: 1px solid #303b59;
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
 
-nav h2,
-h1 span,
-h2 span {
-    color: #b8a5ff;
-}
+        nav h2, .highlight {
+            color: #b8a5ff;
+        }
 
-nav a {
-    display: inline-block;
-    color: #ddd;
-    text-decoration: none;
-    margin: 5px 8px;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
 
-nav a:hover {
-    color: #b8a5ff;
-}
+        section {
+            padding: 40px 0;
+        }
 
-section {
-    padding: 40px 0;
-}
+        h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
 
-h1 {
-    font-size: clamp(28px, 5vw, 42px);
-    margin-bottom: 12px;
-}
+        h2 {
+            margin-bottom: 18px;
+        }
 
-h2 {
-    margin-bottom: 15px;
-}
+        p {
+            color: #bdc6dd;
+            margin: 10px 0;
+        }
 
-h3 {
-    margin-bottom: 10px;
-}
+        .card {
+            background: #151e34;
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid #303b59;
+            margin-top: 18px;
+        }
 
-p {
-    color: #bdc6dd;
-    margin: 10px 0;
-}
+        .skills {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
 
-.card {
-    background: #151e34;
-    padding: 24px;
-    border-radius: 14px;
-    border: 1px solid #303b59;
-    margin-top: 18px;
-}
+        .tag {
+            display: inline-block;
+            background: #292345;
+            color: #d8ceff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin: 5px 4px 0 0;
+            font-size: 13px;
+        }
 
-.skills {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-    gap: 15px;
-}
+        button {
+            background: #252f4b;
+            color: white;
+            border: 1px solid #536080;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin: 5px 3px;
+            cursor: pointer;
+        }
 
-button {
-    background: #242e4a;
-    color: white;
-    border: 1px solid #4a5472;
-    padding: 10px 14px;
-    border-radius: 8px;
-    margin: 5px 3px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
-}
+        button:hover,
+        button.active {
+            background: #b8a5ff;
+            color: #111827;
+        }
 
-button:hover,
-button.active {
-    background: #b8a5ff;
-    color: #111;
-    border-color: #b8a5ff;
-}
+        .output {
+            background: #050911;
+            color: #baf7c5;
+            padding: 20px;
+            margin-top: 18px;
+            border-radius: 10px;
+            border: 1px solid #35415f;
+            white-space: pre;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            min-height: 220px;
+        }
 
-button:focus-visible,
-a:focus-visible {
-    outline: 2px solid #b8a5ff;
-    outline-offset: 3px;
-}
+        .output-title {
+            color: #b8a5ff;
+            margin-top: 15px;
+        }
 
-.output {
-    background: #050911;
-    color: #baf7c5;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    border: 1px solid #35415f;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    overflow-x: auto;
-    font-family: Consolas, monospace;
-    font-size: 14px;
-    min-height: 200px;
-}
+        footer {
+            text-align: center;
+            padding: 22px;
+            border-top: 1px solid #303b59;
+        }
 
-.output-title {
-    color: #b8a5ff;
-    margin-top: 20px;
-}
+        a {
+            color: #b8a5ff;
+        }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid #303b59;
-}
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
 
-a {
-    color: #b8a5ff;
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav div {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .card {
-        padding: 18px;
-    }
-}
-</style>
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -186,67 +170,96 @@ a {
     </nav>
 </header>
 
-<main>
-
+<!-- HOME SECTION -->
 <section class="container" id="home">
-    <h1>Hi, I'm <span>N. Damaris Blessy</span></h1>
+    <h1>Hi, I'm <span class="highlight">N. Damaris Blessy</span></h1>
 
-    <p>
-        B.Sc. Computer Science Student at Bishop Heber College
-        (2026–2029).
-    </p>
-
-    <p>
-        My goal is to become a Cloud Computing Engineer.
-        I enjoy programming, problem-solving, data analysis
-        and exploring new technologies.
-    </p>
-</section>
-
-<section class="container" id="about">
-    <h2>About <span>Me</span></h2>
+    <p>B.Sc. Computer Science Student</p>
+    <p>Bishop Heber College | 2026–2029</p>
 
     <div class="card">
+        <h2>Welcome to My Portfolio</h2>
+
+        <p>
+            I am interested in programming, problem-solving,
+            data analysis, editing and new technologies.
+        </p>
+
+        <p>
+            My career goal is to become a
+            <strong class="highlight">Cloud Computing Engineer.</strong>
+        </p>
+
+        <a href="#project">
+            <button type="button">View My First Project</button>
+        </a>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="container" id="about">
+    <h2>About <span class="highlight">Me</span></h2>
+
+    <div class="card">
+        <p><strong>Name:</strong> N. Damaris Blessy</p>
         <p><strong>College:</strong> Bishop Heber College</p>
         <p><strong>Course:</strong> B.Sc. Computer Science</p>
+        <p><strong>Academic Years:</strong> 2026–2029</p>
         <p><strong>Career Goal:</strong> Cloud Computing Engineer</p>
     </div>
 </section>
 
+<!-- SKILLS SECTION -->
 <section class="container" id="skills">
-    <h2>My <span>Skills</span></h2>
+    <h2>My <span class="highlight">Skills</span></h2>
 
     <div class="skills">
 
         <div class="card">
             <h3>Core Technical Skills</h3>
             <p>
-                Python, C Programming, Problem Solving,
-                Programming Logic and Algorithms.
+                Python, C programming fundamentals,
+                problem-solving, programming logic
+                and algorithms.
             </p>
+
+            <span class="tag">Python</span>
+            <span class="tag">Problem Solving</span>
+            <span class="tag">C Programming</span>
         </div>
 
         <div class="card">
-            <h3>Advanced Technical Skills</h3>
+            <h3>Domain-Specific Advanced Skills</h3>
             <p>
-                Cloud Computing, Data Analytics,
-                Data Visualisation, AI and New Technologies.
+                I am interested in cloud computing,
+                data analysis, data visualisation
+                and emerging technologies.
             </p>
+
+            <span class="tag">Cloud Computing</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Technology</span>
         </div>
 
         <div class="card">
-            <h3>Workplace & Soft Skills</h3>
+            <h3>Crucial Workplace & Soft Skills</h3>
             <p>
-                Communication, Teamwork, Adaptability,
-                Time Management and Creative Thinking.
+                Communication, teamwork, adaptability,
+                time management, creative thinking
+                and editing.
             </p>
+
+            <span class="tag">Teamwork</span>
+            <span class="tag">Creativity</span>
+            <span class="tag">Editing</span>
         </div>
 
     </div>
 </section>
 
+<!-- FIRST PROJECT SECTION -->
 <section class="container" id="project">
-    <h2>My <span>Project</span></h2>
+    <h2>My First <span class="highlight">Project</span></h2>
 
     <div class="card">
         <h3>Student Management System</h3>
@@ -254,233 +267,214 @@ a {
         <p><strong>Programming Language:</strong> C</p>
 
         <p>
-            A console-based project designed to manage student
-            registration, examination results, fee payments,
-            student searches, reports and file operations.
+            This project includes administrator login,
+            student registration, examination results,
+            fee management, student searching,
+            reports and file management.
         </p>
 
-        <h3 class="output-title">Sample Program Outputs</h3>
+        <h3 style="margin-top: 22px;">Sample Program Output</h3>
 
         <p>
-            Click any button to view its sample console output.
+            Click a button to view the sample console output
+            for each module of my C programming project.
         </p>
 
-        <div id="outputButtons">
-            <button type="button" data-output="menu"
-                class="active" aria-pressed="true">
-                Main Menu
-            </button>
-
-            <button type="button" data-output="student"
-                aria-pressed="false">
-                Student Details
-            </button>
-
-            <button type="button" data-output="exam"
-                aria-pressed="false">
-                Exam Results
-            </button>
-
-            <button type="button" data-output="fee"
-                aria-pressed="false">
-                Fee Status
-            </button>
-
-            <button type="button" data-output="search"
-                aria-pressed="false">
-                Search
-            </button>
-
-            <button type="button" data-output="report"
-                aria-pressed="false">
-                Reports
-            </button>
-
-            <button type="button" data-output="file"
-                aria-pressed="false">
-                File Management
-            </button>
+        <div id="buttons">
+            <button class="active" data-type="login">Login</button>
+            <button data-type="menu">Main Menu</button>
+            <button data-type="student">Registration</button>
+            <button data-type="exam">Exam Result</button>
+            <button data-type="fee">Fee Status</button>
+            <button data-type="search">Search</button>
+            <button data-type="report">Reports</button>
+            <button data-type="file">File Management</button>
         </div>
 
-        <pre class="output" id="output"
-             aria-live="polite">STUDENT MANAGEMENT SYSTEM
+        <h4 class="output-title" id="outputTitle">
+            Login — Sample Output
+        </h4>
 
-Login successful!
-
-1. Student Registration
-2. Examination Module
-3. Fee Management
-4. Search Module
-5. Report Module
-6. File Management
-7. Exit
-
-Select an option: _</pre>
+        <pre class="output" id="output"></pre>
 
         <p>
-            Note: The displayed records are illustrative sample
-            outputs. They do not execute the original C program.
+            Note: These are illustrative sample outputs.
+            The website displays examples and does not
+            execute the original C program.
         </p>
     </div>
 </section>
 
+<!-- CONTACT SECTION -->
 <section class="container" id="contact">
-    <h2>Contact <span>Me</span></h2>
+    <h2>Contact <span class="highlight">Me</span></h2>
 
     <div class="card">
         <p>
-            Email:
+            <strong>Email:</strong>
             <a href="mailto:damarisblessyroy@gmail.com">
                 damarisblessyroy@gmail.com
             </a>
         </p>
 
         <p>
-            LinkedIn:
-            <a href="https://www.linkedin.com/in/damaris-blessy-342b01352/"
-               target="_blank" rel="noopener noreferrer">
+            <strong>LinkedIn:</strong>
+            <a
+                href="https://www.linkedin.com/in/damaris-blessy-342b01352/"
+                target="_blank"
+                rel="noopener noreferrer">
                 Visit My LinkedIn Profile
             </a>
         </p>
     </div>
 </section>
 
-</main>
-
 <footer>
-    © 2026 N. Damaris Blessy | Portfolio Website
+    <p>© 2026 N. Damaris Blessy | Portfolio Website</p>
 </footer>
 
 <script>
-"use strict";
+    const outputs = {
 
-const outputs = {
-    menu: `STUDENT MANAGEMENT SYSTEM
+        login: `==============================
+   STUDENT MANAGEMENT SYSTEM
+==============================
+            LOGIN
+
+Enter username: admin
+Enter password: ********
 
 Login successful!
 
-=== MAIN MENU ===
-1. Student Registration
-2. Examination Module
-3. Fee Management
-4. Search Module
-5. Report Module
-6. File Management
-7. Exit
+Press Enter to continue...`,
 
-Select an option: _`,
+        menu: `=== Student Management System ===
+ 1. Login (already logged in)
+ 2. Student Registration
+ 3. Examination Module
+ 4. Fee Management
+ 5. Search Module
+ 6. Report Module
+ 7. File Management
+ 8. Exit
 
-    student: `=== STUDENT REGISTRATION ===
+Enter your choice: _`,
+
+        student: `=== Student Registration ===
+ 1. Add new student
+ 2. View all students
+ 3. Update student
+ 4. Delete student
+ 0. Back
+
+Enter your choice: 1
 
 Enter roll number: 101
 Enter name: Anu
 Enter department: Computer Science
-Enter year: 1
+Enter year (1-3): 1
 Enter phone number: 9876543210
 Enter total fee amount: 25000
 
-Student registered successfully!
+Student registered successfully.`,
 
-=== STUDENT DETAILS ===
-Roll No    : 101
-Name       : Anu
-Department : Computer Science
-Year       : 1
-Phone      : 9876543210`,
-
-    exam: `=== EXAMINATION RESULTS ===
-
-Student Name: Anu
-Roll Number : 101
-
-Programming in C : 85
-Mathematics      : 90
-Data Structures  : 88
-Database Systems : 82
-English          : 91
-
-Total      : 436 / 500
-Percentage : 87.20%
-Grade      : A
-Result     : PASS`,
-
-    fee: `=== FEE MANAGEMENT ===
-
-Student Name: Anu
-Roll Number : 101
-
-Total Fee : Rs. 25,000
-Paid      : Rs. 10,000
-Due       : Rs. 15,000
-
-Payment recorded: Rs. 5,000
-Remaining due  : Rs. 10,000`,
-
-    search: `=== STUDENT SEARCH ===
+        exam: `=== Examination Result ===
 
 Enter roll number: 101
 
-Student found!
+--- Result for Anu (Roll 101) ---
+  Programming in C     :  85
+  Mathematics          :  90
+  Data Structures      :  88
+  Database Systems     :  82
+  English              :  91
+  --------------------------------
+  Total      : 436 / 500
+  Percentage : 87.20%
+  Grade      : A  (PASS)`,
 
-Roll No    : 101
-Name       : Anu
-Department : Computer Science
-Year       : 1
-Phone      : 9876543210`,
+        fee: `=== Fee Management ===
 
-    report: `=== STUDENT REPORT ===
+Enter roll number: 101
 
-Roll No   Name   Total   Percentage   Grade
-101       Anu    436     87.20%       A
+  Name      : Anu
+  Total fee : 25000.00
+  Paid      : 10000.00
+  Due       : 15000.00
+  Status    : PENDING`,
 
-Students listed : 1
-Passed          : 1
-Failed          : 0
+        search: `=== Search Module ===
+ 1. Search by roll number
+ 2. Search by name
+ 3. Search by department
+ 0. Back
 
-Note: This is an illustrative report.`,
+Enter your choice: 1
+Enter roll number: 101
 
-    file: `=== FILE MANAGEMENT ===
+  Roll No    : 101
+  Name       : Anu
+  Department : Computer Science
+  Year       : 1
+  Phone      : 9876543210`,
 
-1. Save Student Records
-2. Load Student Records
-3. Save Exam Results
-4. Generate Report
-5. Return to Main Menu
+        report: `=== Exam Result Report ===
 
-Sample operation:
-Saving student records...
+Rank  Roll     Name     Total   Percent  Grade
+------------------------------------------------
+1     101      Anu      436     87.20%   A
 
-Student records saved successfully!
+Appeared: 1
+Passed: 1
+Failed: 0`,
 
-Note: Actual file operations must be
-implemented in the C program.`
-};
+        file: `=== File Management ===
+ 1. Save data to files
+ 2. Reload data from files
+ 3. Export student list to text file (students.txt)
+ 0. Back
 
-const outputBox = document.getElementById("output");
-const buttonContainer = document.getElementById("outputButtons");
+Enter your choice: 1
 
-buttonContainer.addEventListener("click", function(event) {
-    const button = event.target.closest("button[data-output]");
+Data saved.
 
-    if (!button) {
-        return;
+Press Enter to continue...`
+    };
+
+    const titles = {
+        login: "Login — Sample Output",
+        menu: "Main Menu — Sample Output",
+        student: "Student Registration — Sample Output",
+        exam: "Examination Result — Sample Output",
+        fee: "Fee Status — Sample Output",
+        search: "Search Module — Sample Output",
+        report: "Exam Result Report — Sample Output",
+        file: "File Management — Sample Output"
+    };
+
+    const output = document.getElementById("output");
+    const outputTitle = document.getElementById("outputTitle");
+    const buttons = document.querySelectorAll("#buttons button");
+
+    function showOutput(type) {
+        output.textContent = outputs[type];
+        outputTitle.textContent = titles[type];
+
+        buttons.forEach(function(button) {
+            const selected = button.dataset.type === type;
+
+            button.classList.toggle("active", selected);
+            button.setAttribute("aria-pressed", selected);
+        });
     }
 
-    const selectedOutput = button.dataset.output;
-
-    if (!Object.prototype.hasOwnProperty.call(outputs, selectedOutput)) {
-        return;
-    }
-
-    outputBox.textContent = outputs[selectedOutput];
-
-    buttonContainer.querySelectorAll("button").forEach(function(item) {
-        const isActive = item === button;
-
-        item.classList.toggle("active", isActive);
-        item.setAttribute("aria-pressed", String(isActive));
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            showOutput(button.dataset.type);
+        });
     });
-});
+
+    showOutput("login");
 </script>
 
 </body>
