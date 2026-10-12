@@ -2,475 +2,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N. Damaris Blessy | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N. Damaris Blessy | Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #080d19;
-            color: #f4f6ff;
-            line-height: 1.7;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1020;
+    color: #f5f5ff;
+    line-height: 1.6;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            border-bottom: 1px solid #26304a;
-        }
+header {
+    background: #151e34;
+    padding: 20px;
+    border-bottom: 1px solid #303b59;
+}
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #99a8ff;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
-        nav ul {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
+nav h2, h1 span, h2 span {
+    color: #b8a5ff;
+}
 
-        nav ul a {
-            color: #c1c9dd;
-        }
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 12px;
+}
 
-        nav ul a:hover {
-            color: #99a8ff;
-        }
+section {
+    padding: 45px 0;
+}
 
-        .hero {
-            min-height: 85vh;
-            padding: 80px 8%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
 
-        .hero-content {
-            flex: 1 1 350px;
-        }
+h2 {
+    margin-bottom: 15px;
+}
 
-        .hero-content h1 {
-            font-size: clamp(38px, 6vw, 65px);
-            line-height: 1.2;
-            margin: 20px 0;
-        }
+p {
+    color: #bdc6dd;
+    margin: 10px 0;
+}
 
-        .highlight {
-            color: #99a8ff;
-        }
+.card {
+    background: #151e34;
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid #303b59;
+    margin-top: 18px;
+}
 
-        .intro {
-            color: #b6bfd3;
-            max-width: 600px;
-        }
+button {
+    background: #242e4a;
+    color: white;
+    border: 1px solid #4a5472;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+}
 
-        .button {
-            display: inline-block;
-            margin: 25px 10px 0 0;
-            padding: 12px 20px;
-            border-radius: 7px;
-            background: #899aff;
-            color: #080d19;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+button:hover {
+    background: #b8a5ff;
+    color: #111;
+}
 
-        .button:hover {
-            transform: translateY(-3px);
-            background: #b1bcff;
-        }
+.output {
+    background: #050911;
+    color: #baf7c5;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #35415f;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    font-family: Consolas, monospace;
+    min-height: 200px;
+}
 
-        .secondary {
-            background: transparent;
-            color: white;
-            border: 1px solid #59658a;
-        }
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
 
-        .profile {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            border: 2px solid #899aff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 65px;
-            font-weight: bold;
-            color: #b8c2ff;
-            background: #17213b;
-            margin: auto;
-        }
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #303b59;
+}
 
-        section {
-            padding: 65px 8%;
-            border-top: 1px solid #202941;
-        }
+a {
+    color: #b8a5ff;
+}
 
-        .subtitle {
-            color: #99a8ff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 13px;
-        }
+@media (max-width: 600px) {
+    h1 {
+        font-size: 30px;
+    }
 
-        h2 {
-            font-size: 32px;
-            margin: 10px 0 15px;
-        }
-
-        .description {
-            color: #b6bfd3;
-            max-width: 800px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: #111a2c;
-            border: 1px solid #293653;
-            padding: 25px;
-            border-radius: 12px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #899aff;
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-            color: #dce2ff;
-        }
-
-        .card p {
-            color: #b6bfd3;
-            font-size: 14px;
-        }
-
-        .icon {
-            font-size: 30px;
-            margin-bottom: 12px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .tag {
-            background: #202b48;
-            color: #d4dcff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-
-        .goals {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .contact-box {
-            background: #141e34;
-            border: 1px solid #344161;
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 20px;
-            overflow-wrap: anywhere;
-        }
-
-        .contact-box a {
-            color: #aab7ff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #8994ad;
-            border-top: 1px solid #26304a;
-            font-size: 13px;
-        }
-
-        @media (max-width: 800px) {
-            nav {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-
-            nav ul {
-                gap: 12px;
-                flex-wrap: wrap;
-                font-size: 13px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .goals {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                text-align: center;
-            }
-
-            .intro {
-                margin: auto;
-            }
-
-            .hero-content {
-                flex-basis: 100%;
-            }
-        }
-    </style>
+    nav {
+        flex-direction: column;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">DB.</div>
-
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#goals">Goals</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<header>
+    <nav class="container">
+        <h2>Damaris.</h2>
+        <div>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#project">Project</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
+</header>
 
-    <!-- Home Section -->
-    <header class="hero" id="home">
-        <div class="hero-content">
-            <p class="subtitle">Computer Science Student | 2026–2029</p>
+<section class="container">
+    <h1>Hi, I'm <span>N. Damaris Blessy</span></h1>
+    <p>
+        B.Sc. Computer Science Student at Bishop Heber College
+        (2026–2029).
+    </p>
+    <p>
+        My goal is to become a Cloud Computing Engineer.
+        I know Python and enjoy problem-solving, data analysis,
+        editing and exploring new technologies.
+    </p>
+</section>
 
-            <h1>
-                Hi, I'm<br>
-                <span class="highlight">N. Damaris Blessy.</span>
-            </h1>
+<section class="container" id="about">
+    <h2>About <span>Me</span></h2>
+    <div class="card">
+        <p><strong>College:</strong> Bishop Heber College</p>
+        <p><strong>Course:</strong> B.Sc. Computer Science</p>
+        <p><strong>Career Goal:</strong> Cloud Computing Engineer</p>
+    </div>
+</section>
 
-            <p class="intro">
-                An aspiring Cloud Computing Engineer passionate about
-                Python, problem-solving, data analytics, creative editing,
-                and emerging technologies.
-            </p>
+<section class="container" id="skills">
+    <h2>My <span>Skills</span></h2>
 
-            <a href="#contact" class="button">Let's Connect ↗</a>
-            <a href="#skills" class="button secondary">Explore Skills</a>
+    <div class="skills">
+        <div class="card">
+            <h3>Core Technical Skills</h3>
+            <p>Python, C Programming, Problem Solving,
+            Programming Logic and Algorithms.</p>
         </div>
 
-        <div class="profile">DB.</div>
-    </header>
+        <div class="card">
+            <h3>Domain-Specific Advanced Skills</h3>
+            <p>Cloud Computing, Data Analytics,
+            Data Visualisation, AI and New Technologies.</p>
+        </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <p class="subtitle">01 / About Me</p>
-        <h2>Curious Mind. Future-Focused.</h2>
+        <div class="card">
+            <h3>Crucial Workplace & Soft Skills</h3>
+            <p>Communication, Teamwork, Adaptability,
+            Time Management and Creative Thinking.</p>
+        </div>
+    </div>
+</section>
 
-        <p class="description">
-            I'm N. Damaris Blessy, a first-year B.Sc. Computer Science
-            student at Bishop Heber College. I'm building my technical
-            foundation and exploring how technology can solve real-world
-            problems. My goal is to become a Cloud Computing Engineer
-            while exploring data analysis, digital creativity, and
-            emerging technologies.
+<section class="container" id="project">
+    <h2>My <span>Project</span></h2>
+
+    <div class="card">
+        <h3>Student Management System</h3>
+
+        <p>
+            <strong>Language:</strong> C Programming
         </p>
 
-        <div class="cards">
-            <div class="card">
-                <div class="icon">🎓</div>
-                <h3>Education</h3>
-                <p>
-                    B.Sc. Computer Science<br>
-                    Bishop Heber College<br>
-                    2026–2029
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">☁️</div>
-                <h3>Career Aspiration</h3>
-                <p>
-                    To become a Cloud Computing Engineer and learn
-                    to build secure, reliable, and scalable applications.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">💡</div>
-                <h3>Interests</h3>
-                <p>
-                    Data analytics, editing, problem-solving,
-                    and discovering new technologies.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <p class="subtitle">02 / My Skills</p>
-        <h2>Growing My Skill Set.</h2>
-
-        <p class="description">
-            I am continuously learning and developing my skills
-            to prepare for a career in the IT industry.
+        <p>
+            This project manages student registration, examination
+            results, fee payments, student searches and reports.
         </p>
 
-        <div class="cards">
-            <div class="card">
-                <div class="icon">⌨️</div>
-                <h3>Core Technical Skills</h3>
-                <p>My programming and technical foundations.</p>
+        <h3>Check Sample Program Output</h3>
 
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Problem Solving</span>
-                    <span class="tag">Programming Logic</span>
-                    <span class="tag">Algorithms</span>
-                    <span class="tag">Git & GitHub - Learning</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="icon">☁️</div>
-                <h3>Domain-Specific Advanced Skills</h3>
-                <p>Technologies I am exploring for my future career.</p>
-
-                <div class="tags">
-                    <span class="tag">Cloud Computing</span>
-                    <span class="tag">Cloud Platforms - Learning</span>
-                    <span class="tag">Data Analytics</span>
-                    <span class="tag">SQL - Learning</span>
-                    <span class="tag">Data Visualisation</span>
-                    <span class="tag">AI & New Technologies</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="icon">🤝</div>
-                <h3>Workplace & Soft Skills</h3>
-                <p>Skills I am developing for effective teamwork.</p>
-
-                <div class="tags">
-                    <span class="tag">Problem Solving</span>
-                    <span class="tag">Communication</span>
-                    <span class="tag">Teamwork</span>
-                    <span class="tag">Adaptability</span>
-                    <span class="tag">Time Management</span>
-                    <span class="tag">Creative Thinking</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Career Goals -->
-    <section id="goals">
-        <p class="subtitle">03 / My Direction</p>
-        <h2>Where I'm Heading.</h2>
-
-        <div class="goals">
-            <div class="card">
-                <h3><span class="highlight">01.</span> Cloud Computing</h3>
-                <p>
-                    Learn cloud fundamentals, networking, security,
-                    deployment, and scalable infrastructure.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3><span class="highlight">02.</span> Data Analytics</h3>
-                <p>
-                    Explore data analysis, SQL, and visualisation
-                    to understand information and discover insights.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3><span class="highlight">03.</span> Creative Editing</h3>
-                <p>
-                    Improve my editing skills and combine creativity
-                    with technology to create engaging content.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3><span class="highlight">04.</span> Continuous Learning</h3>
-                <p>
-                    Strengthen my programming skills, work on projects,
-                    and explore emerging technologies.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <p class="subtitle">04 / Contact</p>
-        <h2>Let's Connect.</h2>
-
-        <p class="description">
-            I'm interested in technology, learning opportunities,
-            and connecting with fellow learners and professionals.
+        <p>
+            Select a button below to display the corresponding
+            sample console output.
         </p>
 
-        <div class="contact-box">
-            <h3>📧 Email</h3>
-            <p>
-                <a href="mailto:damarisblessyroy@gmail.com">
-                    damarisblessyroy@gmail.com
-                </a>
-            </p>
+        <button onclick="showOutput('menu')">Main Menu</button>
+        <button onclick="showOutput('student')">Student Details</button>
+        <button onclick="showOutput('exam')">Exam Result</button>
+        <button onclick="showOutput('fee')">Fee Status</button>
+        <button onclick="showOutput('search')">Search</button>
+        <button onclick="showOutput('report')">Reports</button>
 
-            <br>
+        <pre class="output" id="output">STUDENT MANAGEMENT SYSTEM
 
-            <h3>💼 LinkedIn</h3>
-            <p>
-                <a
-                    href="https://www.linkedin.com/in/damaris-blessy-342b01352/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    View My LinkedIn Profile ↗
-                </a>
-            </p>
-        </div>
-    </section>
+Login successful!
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 N. Damaris Blessy | Personal Portfolio</p>
-        <p>Designed with curiosity and ambition.</p>
-    </footer>
+1. Student Registration
+2. Examination Module
+3. Fee Management
+4. Search Module
+5. Report Module
+6. File Management
+7. Exit
+
+Select an option...</pre>
+    </div>
+</section>
+
+<section class="container" id="contact">
+    <h2>Contact <span>Me</span></h2>
+
+    <div class="card">
+        <p>
+            Email:
+            <a href="mailto:damarisblessyroy@gmail.com">
+                damarisblessyroy@gmail.com
+            </a>
+        </p>
+
+        <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/damaris-blessy-342b01352/"
+               target="_blank" rel="noopener noreferrer">
+                Visit My LinkedIn Profile
+            </a>
+        </p>
+    </div>
+</section>
+
+<footer>
+    © 2026 N. Damaris Blessy | Portfolio Website
+</footer>
+
+<script>
+const outputs = {
+    menu: `STUDENT MANAGEMENT SYSTEM
+
+Login successful!
+
+=== Main Menu ===
+1. Login
+2. Student Registration
+3. Examination Module
+4. Fee Management
+5. Search Module
+6. Report Module
+7. File Management
+8. Exit
+
+Enter your choice: _`,
+
+    student: `=== Student Registration ===
+
+Enter roll number: 101
+Enter name: Anu
+Enter department: Computer Science
+Enter year: 1
+Enter phone number: 9876543210
+Enter total fee amount: 25000
+
+Student registered successfully.
+
+=== Student Details ===
+Roll No    : 101
+Name       : Anu
+Department : Computer Science
+Year       : 1
+Phone      : 9876543210`,
+
+    exam: `=== Examination Result ===
+
+Student: Anu
+Programming in C : 85
+Mathematics      : 90
+Data Structures  : 88
+Database Systems : 82
+English          : 91
+
+Total      : 436 / 500
+Percentage : 87.20%
+Grade      : A (PASS)`,
+
+    fee: `=== Fee Management ===
+
+Student: Anu
+Total fee : 25000.00
+Paid      : 10000.00
+Due       : 15000.00
+
+Payment recorded: 5000.00
+Remaining due: 10000.00`,
+
+    search: `=== Search Module ===
+
+Enter roll number: 101
+
+Student found!
+
+Roll No    : 101
+Name       : Anu
+Department : Computer Science
+Year       : 1
+Phone      : 9876543210`,
+
+    report: `=== Exam Result Report ===
+
+Rank  Roll   Name    Total   Percent   Grade
+1     101    Anu     436     87.20%    A
+
+Appeared: 1
+Passed: 1
+Failed: 0`
+};
+
+function showOutput(type) {
+    document.getElementById("output").textContent =
+        outputs[type];
+}
+</script>
 
 </body>
 </html>
