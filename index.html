@@ -13,6 +13,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: #0b1020;
@@ -28,38 +32,50 @@ body {
 
 header {
     background: #151e34;
-    padding: 20px;
+    padding: 20px 0;
     border-bottom: 1px solid #303b59;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 12px;
 }
 
-nav h2, h1 span, h2 span {
+nav h2,
+h1 span,
+h2 span {
     color: #b8a5ff;
 }
 
 nav a {
+    display: inline-block;
     color: #ddd;
     text-decoration: none;
-    margin-left: 12px;
+    margin: 5px 8px;
+}
+
+nav a:hover {
+    color: #b8a5ff;
 }
 
 section {
-    padding: 45px 0;
+    padding: 40px 0;
 }
 
 h1 {
-    font-size: 38px;
+    font-size: clamp(28px, 5vw, 42px);
     margin-bottom: 12px;
 }
 
 h2 {
     margin-bottom: 15px;
+}
+
+h3 {
+    margin-bottom: 10px;
 }
 
 p {
@@ -75,19 +91,36 @@ p {
     margin-top: 18px;
 }
 
+.skills {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 15px;
+}
+
 button {
     background: #242e4a;
     color: white;
     border: 1px solid #4a5472;
     padding: 10px 14px;
     border-radius: 8px;
-    margin: 5px;
+    margin: 5px 3px;
     cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
-button:hover {
+button:hover,
+button.active {
     background: #b8a5ff;
     color: #111;
+    border-color: #b8a5ff;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #b8a5ff;
+    outline-offset: 3px;
 }
 
 .output {
@@ -98,15 +131,16 @@ button:hover {
     border-radius: 10px;
     border: 1px solid #35415f;
     white-space: pre-wrap;
+    overflow-wrap: anywhere;
     overflow-x: auto;
     font-family: Consolas, monospace;
+    font-size: 14px;
     min-height: 200px;
 }
 
-.skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
+.output-title {
+    color: #b8a5ff;
+    margin-top: 20px;
 }
 
 footer {
@@ -120,12 +154,18 @@ a {
 }
 
 @media (max-width: 600px) {
-    h1 {
-        font-size: 30px;
-    }
-
     nav {
         flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        padding: 18px;
     }
 }
 </style>
@@ -136,6 +176,7 @@ a {
 <header>
     <nav class="container">
         <h2>Damaris.</h2>
+
         <div>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -145,21 +186,26 @@ a {
     </nav>
 </header>
 
-<section class="container">
+<main>
+
+<section class="container" id="home">
     <h1>Hi, I'm <span>N. Damaris Blessy</span></h1>
+
     <p>
         B.Sc. Computer Science Student at Bishop Heber College
         (2026–2029).
     </p>
+
     <p>
         My goal is to become a Cloud Computing Engineer.
-        I know Python and enjoy problem-solving, data analysis,
-        editing and exploring new technologies.
+        I enjoy programming, problem-solving, data analysis
+        and exploring new technologies.
     </p>
 </section>
 
 <section class="container" id="about">
     <h2>About <span>Me</span></h2>
+
     <div class="card">
         <p><strong>College:</strong> Bishop Heber College</p>
         <p><strong>Course:</strong> B.Sc. Computer Science</p>
@@ -171,23 +217,31 @@ a {
     <h2>My <span>Skills</span></h2>
 
     <div class="skills">
+
         <div class="card">
             <h3>Core Technical Skills</h3>
-            <p>Python, C Programming, Problem Solving,
-            Programming Logic and Algorithms.</p>
+            <p>
+                Python, C Programming, Problem Solving,
+                Programming Logic and Algorithms.
+            </p>
         </div>
 
         <div class="card">
-            <h3>Domain-Specific Advanced Skills</h3>
-            <p>Cloud Computing, Data Analytics,
-            Data Visualisation, AI and New Technologies.</p>
+            <h3>Advanced Technical Skills</h3>
+            <p>
+                Cloud Computing, Data Analytics,
+                Data Visualisation, AI and New Technologies.
+            </p>
         </div>
 
         <div class="card">
-            <h3>Crucial Workplace & Soft Skills</h3>
-            <p>Communication, Teamwork, Adaptability,
-            Time Management and Creative Thinking.</p>
+            <h3>Workplace & Soft Skills</h3>
+            <p>
+                Communication, Teamwork, Adaptability,
+                Time Management and Creative Thinking.
+            </p>
         </div>
+
     </div>
 </section>
 
@@ -197,30 +251,59 @@ a {
     <div class="card">
         <h3>Student Management System</h3>
 
-        <p>
-            <strong>Language:</strong> C Programming
-        </p>
+        <p><strong>Programming Language:</strong> C</p>
 
         <p>
-            This project manages student registration, examination
-            results, fee payments, student searches and reports.
+            A console-based project designed to manage student
+            registration, examination results, fee payments,
+            student searches, reports and file operations.
         </p>
 
-        <h3>Check Sample Program Output</h3>
+        <h3 class="output-title">Sample Program Outputs</h3>
 
         <p>
-            Select a button below to display the corresponding
-            sample console output.
+            Click any button to view its sample console output.
         </p>
 
-        <button onclick="showOutput('menu')">Main Menu</button>
-        <button onclick="showOutput('student')">Student Details</button>
-        <button onclick="showOutput('exam')">Exam Result</button>
-        <button onclick="showOutput('fee')">Fee Status</button>
-        <button onclick="showOutput('search')">Search</button>
-        <button onclick="showOutput('report')">Reports</button>
+        <div id="outputButtons">
+            <button type="button" data-output="menu"
+                class="active" aria-pressed="true">
+                Main Menu
+            </button>
 
-        <pre class="output" id="output">STUDENT MANAGEMENT SYSTEM
+            <button type="button" data-output="student"
+                aria-pressed="false">
+                Student Details
+            </button>
+
+            <button type="button" data-output="exam"
+                aria-pressed="false">
+                Exam Results
+            </button>
+
+            <button type="button" data-output="fee"
+                aria-pressed="false">
+                Fee Status
+            </button>
+
+            <button type="button" data-output="search"
+                aria-pressed="false">
+                Search
+            </button>
+
+            <button type="button" data-output="report"
+                aria-pressed="false">
+                Reports
+            </button>
+
+            <button type="button" data-output="file"
+                aria-pressed="false">
+                File Management
+            </button>
+        </div>
+
+        <pre class="output" id="output"
+             aria-live="polite">STUDENT MANAGEMENT SYSTEM
 
 Login successful!
 
@@ -232,7 +315,12 @@ Login successful!
 6. File Management
 7. Exit
 
-Select an option...</pre>
+Select an option: _</pre>
+
+        <p>
+            Note: The displayed records are illustrative sample
+            outputs. They do not execute the original C program.
+        </p>
     </div>
 </section>
 
@@ -257,29 +345,32 @@ Select an option...</pre>
     </div>
 </section>
 
+</main>
+
 <footer>
     © 2026 N. Damaris Blessy | Portfolio Website
 </footer>
 
 <script>
+"use strict";
+
 const outputs = {
     menu: `STUDENT MANAGEMENT SYSTEM
 
 Login successful!
 
-=== Main Menu ===
-1. Login
-2. Student Registration
-3. Examination Module
-4. Fee Management
-5. Search Module
-6. Report Module
-7. File Management
-8. Exit
+=== MAIN MENU ===
+1. Student Registration
+2. Examination Module
+3. Fee Management
+4. Search Module
+5. Report Module
+6. File Management
+7. Exit
 
-Enter your choice: _`,
+Select an option: _`,
 
-    student: `=== Student Registration ===
+    student: `=== STUDENT REGISTRATION ===
 
 Enter roll number: 101
 Enter name: Anu
@@ -288,18 +379,20 @@ Enter year: 1
 Enter phone number: 9876543210
 Enter total fee amount: 25000
 
-Student registered successfully.
+Student registered successfully!
 
-=== Student Details ===
+=== STUDENT DETAILS ===
 Roll No    : 101
 Name       : Anu
 Department : Computer Science
 Year       : 1
 Phone      : 9876543210`,
 
-    exam: `=== Examination Result ===
+    exam: `=== EXAMINATION RESULTS ===
 
-Student: Anu
+Student Name: Anu
+Roll Number : 101
+
 Programming in C : 85
 Mathematics      : 90
 Data Structures  : 88
@@ -308,19 +401,22 @@ English          : 91
 
 Total      : 436 / 500
 Percentage : 87.20%
-Grade      : A (PASS)`,
+Grade      : A
+Result     : PASS`,
 
-    fee: `=== Fee Management ===
+    fee: `=== FEE MANAGEMENT ===
 
-Student: Anu
-Total fee : 25000.00
-Paid      : 10000.00
-Due       : 15000.00
+Student Name: Anu
+Roll Number : 101
 
-Payment recorded: 5000.00
-Remaining due: 10000.00`,
+Total Fee : Rs. 25,000
+Paid      : Rs. 10,000
+Due       : Rs. 15,000
 
-    search: `=== Search Module ===
+Payment recorded: Rs. 5,000
+Remaining due  : Rs. 10,000`,
+
+    search: `=== STUDENT SEARCH ===
 
 Enter roll number: 101
 
@@ -332,20 +428,59 @@ Department : Computer Science
 Year       : 1
 Phone      : 9876543210`,
 
-    report: `=== Exam Result Report ===
+    report: `=== STUDENT REPORT ===
 
-Rank  Roll   Name    Total   Percent   Grade
-1     101    Anu     436     87.20%    A
+Roll No   Name   Total   Percentage   Grade
+101       Anu    436     87.20%       A
 
-Appeared: 1
-Passed: 1
-Failed: 0`
+Students listed : 1
+Passed          : 1
+Failed          : 0
+
+Note: This is an illustrative report.`,
+
+    file: `=== FILE MANAGEMENT ===
+
+1. Save Student Records
+2. Load Student Records
+3. Save Exam Results
+4. Generate Report
+5. Return to Main Menu
+
+Sample operation:
+Saving student records...
+
+Student records saved successfully!
+
+Note: Actual file operations must be
+implemented in the C program.`
 };
 
-function showOutput(type) {
-    document.getElementById("output").textContent =
-        outputs[type];
-}
+const outputBox = document.getElementById("output");
+const buttonContainer = document.getElementById("outputButtons");
+
+buttonContainer.addEventListener("click", function(event) {
+    const button = event.target.closest("button[data-output]");
+
+    if (!button) {
+        return;
+    }
+
+    const selectedOutput = button.dataset.output;
+
+    if (!Object.prototype.hasOwnProperty.call(outputs, selectedOutput)) {
+        return;
+    }
+
+    outputBox.textContent = outputs[selectedOutput];
+
+    buttonContainer.querySelectorAll("button").forEach(function(item) {
+        const isActive = item === button;
+
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+    });
+});
 </script>
 
 </body>
