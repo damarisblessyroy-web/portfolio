@@ -1,0 +1,1099 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>N. Damaris Blessy | Portfolio</title>
+    <meta name="description" content="The personal portfolio of N. Damaris Blessy, Computer Science student interested in Python, cloud computing and data analytics.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #080810;
+            --bg-soft: #10101d;
+            --card: #141424;
+            --purple: #a855f7;
+            --purple-light: #c084fc;
+            --blue: #38bdf8;
+            --white: #f8fafc;
+            --muted: #a1a1b5;
+            --border: rgba(168, 85, 247, 0.22);
+            --gradient: linear-gradient(135deg, #a855f7, #38bdf8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 88%);
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 8, 16, 0.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 76px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--purple-light);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--blue);
+        }
+
+        .nav-button {
+            color: var(--white) !important;
+            padding: 9px 16px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+        }
+
+        /* Hero */
+
+        .hero {
+            position: relative;
+            padding: 105px 0 100px;
+            background:
+                radial-gradient(ellipse at 78% 20%,
+                    rgba(111, 45, 189, 0.20), transparent 38%),
+                radial-gradient(ellipse at 15% 85%,
+                    rgba(14, 165, 233, 0.10), transparent 35%),
+                var(--bg);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.8fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .hero h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.12;
+            letter-spacing: -2px;
+            margin: 25px 0;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 15px;
+            max-width: 570px;
+            line-height: 1.95;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 21px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+        }
+
+        .btn-primary {
+            color: white;
+            background: var(--gradient);
+        }
+
+        .btn-outline {
+            color: var(--white);
+            border: 1px solid #34344b;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Profile card */
+
+        .profile-card {
+            position: relative;
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: linear-gradient(145deg, #18182b, #0e0e19);
+            box-shadow: 0 0 60px rgba(100, 40, 190, 0.10);
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            top: -20px;
+            right: -15px;
+            background: rgba(56, 189, 248, 0.09);
+            filter: blur(30px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            display: grid;
+            place-items: center;
+            border-radius: 22px;
+            background: var(--gradient);
+            color: white;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 27px;
+            font-weight: 700;
+            margin-bottom: 23px;
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.22);
+        }
+
+        .profile-card h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 23px;
+            margin-bottom: 5px;
+        }
+
+        .profile-subtitle {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .line {
+            border: 0;
+            border-top: 1px solid #29293c;
+            margin: 23px 0;
+        }
+
+        .profile-detail {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin: 17px 0;
+        }
+
+        .detail-icon {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background: rgba(168, 85, 247, 0.10);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+        }
+
+        .profile-detail small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .profile-detail strong {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* General sections */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-soft);
+            border-top: 1px solid rgba(255,255,255,0.025);
+            border-bottom: 1px solid rgba(255,255,255,0.025);
+        }
+
+        .section-heading {
+            margin-bottom: 38px;
+        }
+
+        .section-heading h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(31px, 4vw, 43px);
+            letter-spacing: -1px;
+            line-height: 1.3;
+            margin: 13px 0;
+        }
+
+        .section-heading p.description {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .about-highlight {
+            background: linear-gradient(145deg, #211238, #111324);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .about-highlight .big-symbol {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 54px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .about-highlight p {
+            font-size: 18px;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .about-highlight small {
+            display: block;
+            color: var(--blue);
+            margin-top: 22px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 23px;
+        }
+
+        .tag {
+            padding: 7px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: rgba(168, 85, 247, 0.07);
+            color: #d8b4fe;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Academics */
+
+        .academic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .academic-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--card);
+            border: 1px solid #28283e;
+            border-radius: 17px;
+            padding: 30px;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .academic-card:hover,
+        .skill-card:hover,
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--purple);
+        }
+
+        .academic-card::after {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            right: -60px;
+            bottom: -70px;
+            background: rgba(168, 85, 247, 0.13);
+            filter: blur(35px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .academic-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .academic-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.09);
+            border: 1px solid rgba(56, 189, 248, 0.16);
+            font-size: 21px;
+        }
+
+        .academic-badge {
+            padding: 6px 11px;
+            border-radius: 30px;
+            color: var(--blue);
+            background: rgba(56, 189, 248, 0.08);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .academic-card h3 {
+            margin-top: 24px;
+            font-size: 16px;
+        }
+
+        .marks {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 44px;
+            line-height: 1.4;
+            font-weight: 700;
+            margin: 7px 0;
+        }
+
+        .marks-note {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .academic-footnote {
+            color: var(--muted);
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            border: 1px solid #28283e;
+            border-radius: 15px;
+            background: var(--card);
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .skill-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            background: rgba(168, 85, 247, 0.10);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 22px;
+            margin-bottom: 19px;
+        }
+
+        .skill-card h3 {
+            font-size: 15px;
+            margin-bottom: 9px;
+        }
+
+        .skill-card p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.85;
+        }
+
+        /* Project */
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            overflow: hidden;
+            background: var(--card);
+            border: 1px solid #28283e;
+            border-radius: 18px;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .project-visual {
+            display: grid;
+            place-items: center;
+            min-height: 280px;
+            background:
+                radial-gradient(circle at 50% 40%,
+                    rgba(168, 85, 247, 0.23), transparent 48%),
+                linear-gradient(145deg, #19152e, #0c1729);
+            border-right: 1px solid #28283e;
+        }
+
+        .project-symbol {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--blue);
+            text-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
+        }
+
+        .project-content {
+            padding: 32px;
+        }
+
+        .project-label {
+            color: var(--purple-light);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .project-content h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 24px;
+            margin: 12px 0;
+        }
+
+        .project-content p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .project-tech span {
+            color: var(--blue);
+            background: rgba(56, 189, 248, 0.07);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* Contact */
+
+        .contact-box {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 35px;
+            padding: 48px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background:
+                radial-gradient(ellipse at 85% 15%,
+                    rgba(56, 189, 248, 0.13), transparent 40%),
+                linear-gradient(125deg, #1b1030, #111321);
+        }
+
+        .contact-box h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.3;
+            margin: 14px 0;
+        }
+
+        .contact-box p.contact-description {
+            color: var(--muted);
+            font-size: 13px;
+            max-width: 500px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 27px 0;
+            border-top: 1px solid #202033;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer p,
+        footer a {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        footer a:hover {
+            color: var(--blue);
+        }
+
+        /* Responsive layout */
+
+        @media (max-width: 850px) {
+            .navbar {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .profile-card {
+                max-width: 500px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact-box {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 32px;
+            }
+
+            .contact-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                width: 90%;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .academic-grid,
+            .skills-grid,
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-visual {
+                min-height: 170px;
+                border-right: 0;
+                border-bottom: 1px solid #28283e;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .academic-card,
+            .skill-card {
+                padding: 23px;
+            }
+
+            .contact-box {
+                padding: 27px 22px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container navbar">
+            <a href="#home" class="logo">DB<span>.</span></a>
+
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#academics">Academics</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact" class="nav-button">Contact ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div>
+                    <p class="eyebrow">Computer Science Student</p>
+
+                    <h1>
+                        Hi, I'm<br>
+                        N. Damaris<br>
+                        <span class="gradient-text">Blessy.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A curious Computer Science student passionate
+                        about Python, problem-solving, data analytics,
+                        and emerging technologies. My goal is to build
+                        a career in cloud computing and create meaningful
+                        solutions through technology.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Projects ↗
+                        </a>
+
+                        <a href="#about" class="btn btn-outline">
+                            Discover My Journey
+                        </a>
+                    </div>
+                </div>
+
+                <aside class="profile-card">
+                    <div class="avatar">DB</div>
+
+                    <h2>N. Damaris Blessy</h2>
+                    <p class="profile-subtitle">
+                        B.Sc. Computer Science Undergraduate
+                    </p>
+
+                    <hr class="line">
+
+                    <div class="profile-detail">
+                        <div class="detail-icon">🎓</div>
+                        <div>
+                            <small>Education</small>
+                            <strong>B.Sc. Computer Science</strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail">
+                        <div class="detail-icon">🏛️</div>
+                        <div>
+                            <small>Institution</small>
+                            <strong>Bishop Heber College</strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail">
+                        <div class="detail-icon">☁️</div>
+                        <div>
+                            <small>Career Goal</small>
+                            <strong>Cloud Computing Engineer</strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail">
+                        <div class="detail-icon">📅</div>
+                        <div>
+                            <small>Degree Duration</small>
+                            <strong>2026 – 2029</strong>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container about-grid">
+
+                <div class="about-highlight">
+                    <div class="big-symbol gradient-text">01 /</div>
+
+                    <p>
+                        Learn continuously.
+                        Think creatively.
+                        Build confidently.
+                    </p>
+
+                    <small>MY LEARNING PHILOSOPHY</small>
+                </div>
+
+                <div class="about-text">
+                    <p class="eyebrow">Get to know me</p>
+
+                    <div class="section-heading">
+                        <h2>About <span class="gradient-text">Me.</span></h2>
+                    </div>
+
+                    <p>
+                        I'm N. Damaris Blessy, a first-year B.Sc. Computer
+                        Science student at Bishop Heber College. I enjoy
+                        learning programming, strengthening my logical
+                        thinking, and exploring new technologies.
+                    </p>
+
+                    <p>
+                        I'm working towards a future in cloud computing
+                        while exploring data analytics and creative editing.
+                        I believe that curiosity, consistency, and practical
+                        learning help me grow one step at a time.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Cloud Computing</span>
+                        <span class="tag">Data Analytics</span>
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Technology</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ACADEMICS -->
+        <section class="section section-alt" id="academics">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">My academic journey</p>
+                    <h2>Education & <span class="gradient-text">Marks.</span></h2>
+                    <p class="description">
+                        My educational background and the foundation
+                        I'm building for my computer science journey.
+                    </p>
+                </div>
+
+                <div class="academic-grid">
+
+                    <article class="academic-card">
+                        <div class="academic-top">
+                            <div class="academic-icon">📘</div>
+                            <span class="academic-badge">CLASS 10</span>
+                        </div>
+
+                        <h3>10th Standard</h3>
+                        <p class="marks gradient-text">435</p>
+                        <p class="marks-note">Total marks obtained</p>
+                    </article>
+
+                    <article class="academic-card">
+                        <div class="academic-top">
+                            <div class="academic-icon">🎓</div>
+                            <span class="academic-badge">CLASS 12</span>
+                        </div>
+
+                        <h3>12th Standard</h3>
+                        <p class="marks gradient-text">
+                            444<span style="font-size: 22px;"> / 600</span>
+                        </p>
+                        <p class="marks-note">Total marks obtained</p>
+                    </article>
+
+                </div>
+
+                <p class="academic-footnote">
+                    Currently pursuing B.Sc. Computer Science at
+                    Bishop Heber College (2026–2029).
+                </p>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">My learning toolkit</p>
+                    <h2>Skills & <span class="gradient-text">Interests.</span></h2>
+                    <p class="description">
+                        Technical foundations and creative interests
+                        I'm developing as I continue learning.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🐍</div>
+                        <h3>Python Programming</h3>
+                        <p>
+                            Learning Python fundamentals and writing
+                            programs through regular practice.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🧩</div>
+                        <h3>Problem Solving</h3>
+                        <p>
+                            Developing logical thinking and structured
+                            approaches to programming problems.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">☁️</div>
+                        <h3>Cloud Computing</h3>
+                        <p>
+                            Exploring cloud platforms, infrastructure,
+                            and modern cloud services.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">📊</div>
+                        <h3>Data Analytics</h3>
+                        <p>
+                            Interested in analysing data and finding
+                            useful patterns and insights.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <h3>Creative Editing</h3>
+                        <p>
+                            Exploring visual creativity, editing,
+                            and digital presentation.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">💡</div>
+                        <h3>Emerging Technologies</h3>
+                        <p>
+                            Curious about AI, software innovation,
+                            and the future of technology.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section section-alt" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">My work</p>
+                    <h2>Featured <span class="gradient-text">Project.</span></h2>
+                    <p class="description">
+                        A showcase of my programming practice and
+                        the projects I develop while learning.
+                    </p>
+                </div>
+
+                <article class="project-card">
+                    <div class="project-visual">
+                        <div class="project-symbol">&lt;/&gt;</div>
+                    </div>
+
+                    <div class="project-content">
+                        <span class="project-label">Programming Project</span>
+
+                        <h3>Student Management System</h3>
+
+                        <p>
+                            A student-focused programming project designed
+                            to practise organising student information and
+                            applying programming logic. Add your actual
+                            features here to describe your implementation.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Programming</span>
+                            <span>Problem Solving</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="container">
+
+                <div class="contact-box">
+                    <div>
+                        <p class="eyebrow">Let's connect</p>
+
+                        <h2>
+                            Let's build something<br>
+                            <span class="gradient-text">meaningful.</span>
+                        </h2>
+
+                        <p class="contact-description">
+                            Interested in technology, cloud computing,
+                            or exchanging ideas? Connect with me on
+                            LinkedIn or send me an email.
+                        </p>
+                    </div>
+
+                    <div class="contact-buttons">
+                        <a
+                            class="btn btn-primary"
+                            href="https://www.linkedin.com/in/damaris-blessy-342b01352"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LinkedIn Profile ↗
+                        </a>
+
+                        <a
+                            class="btn btn-outline"
+                            href="mailto:damarisblessyroy@gmail.com">
+                            ✉ Email Me
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-inner">
+            <p>© 2026 N. Damaris Blessy. All rights reserved.</p>
+            <a href="#home">Back to top ↑</a>
+        </div>
+    </footer>
+
+</body>
+</html>
