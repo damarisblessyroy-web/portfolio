@@ -1,1132 +1,1099 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b1020">
-<title>N. Damaris Blessy | Portfolio</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-
-:root {
-  --bg: #080b18;
-  --panel: rgba(20,27,51,.78);
-  --line: rgba(177,169,255,.18);
-  --text: #f7f7ff;
-  --muted: #b5bdd6;
-  --purple: #b6a4ff;
-  --cyan: #75e7ef;
-  --green: #baf7c5;
-  --shadow: 0 24px 70px rgba(0,0,0,.28);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  font-family: 'DM Sans', Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(ellipse at 12% 8%, rgba(112,84,255,.22), transparent 34%),
-    radial-gradient(ellipse at 88% 25%, rgba(47,202,219,.13), transparent 30%),
-    radial-gradient(ellipse at 70% 90%, rgba(255,108,181,.09), transparent 28%),
-    #080b18;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: .12;
-  background-image: radial-gradient(#a9b3ff .6px, transparent .6px);
-  background-size: 22px 22px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(1100px, 91%);
-  margin-inline: auto;
-}
-
-/* Navigation */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(8,11,24,.78);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-
-nav {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.logo {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-}
-
-.logo span {
-  color: var(--purple);
-}
-
-.links {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.links a {
-  font-size: .92rem;
-  color: var(--muted);
-  padding: 9px 13px;
-  border-radius: 999px;
-  transition: .2s;
-}
-
-.links a:hover {
-  color: white;
-  background: rgba(182,164,255,.12);
-}
-
-/* Hero section */
-
-.hero {
-  padding: 90px 0 64px;
-  display: grid;
-  grid-template-columns: 1.35fr .65fr;
-  align-items: center;
-  gap: 45px;
-  min-height: 570px;
-}
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  border: 1px solid var(--line);
-  background: rgba(182,164,255,.08);
-  color: #d8d0ff;
-  border-radius: 999px;
-  padding: 7px 13px;
-  font-size: .83rem;
-  font-weight: 600;
-}
-
-.dot {
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 14px var(--cyan);
-}
-
-h1, h2, h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  line-height: 1.18;
-}
-
-h1 {
-  font-size: clamp(2.7rem, 6vw, 5rem);
-  letter-spacing: -2.5px;
-  margin: 23px 0 18px;
-}
-
-.gradient {
-  background: linear-gradient(100deg, var(--purple), var(--cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hero p {
-  font-size: 1.08rem;
-  color: var(--muted);
-  max-width: 650px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 28px;
-}
-
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 12px 18px;
-  font-weight: 700;
-  font-size: .94rem;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-.btn-primary {
-  background: linear-gradient(110deg, #b6a4ff, #80e7ef);
-  color: #101327;
-  border: 0;
-  box-shadow: 0 12px 35px rgba(133,153,255,.2);
-}
-
-.btn-secondary {
-  background: rgba(255,255,255,.035);
-  color: var(--text);
-}
-
-/* Animated profile */
-
-.profile-art {
-  position: relative;
-  min-height: 320px;
-  display: grid;
-  place-items: center;
-}
-
-.orb {
-  width: min(290px, 70vw);
-  aspect-ratio: 1;
-  border-radius: 36% 64% 58% 42% / 42% 39% 61% 58%;
-  background: linear-gradient(
-    135deg,
-    rgba(182,164,255,.25),
-    rgba(117,231,239,.11)
-  );
-  border: 1px solid rgba(182,164,255,.35);
-  box-shadow:
-    inset 0 0 55px rgba(182,164,255,.12),
-    0 0 85px rgba(112,84,255,.14);
-  display: grid;
-  place-items: center;
-  animation: float 7s ease-in-out infinite;
-}
-
-.initials {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 5rem;
-  font-weight: 700;
-  letter-spacing: -5px;
-  background: linear-gradient(130deg, #fff, var(--purple), var(--cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.float-card {
-  position: absolute;
-  background: rgba(17,24,46,.88);
-  border: 1px solid var(--line);
-  padding: 12px 15px;
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  font-size: .88rem;
-  backdrop-filter: blur(12px);
-}
-
-.float-card strong {
-  display: block;
-  color: var(--cyan);
-  font-size: 1rem;
-}
-
-.fc-one {
-  top: 16%;
-  right: -2%;
-}
-
-.fc-two {
-  bottom: 14%;
-  left: -3%;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(-3deg);
-  }
-  50% {
-    transform: translateY(-12px) rotate(3deg);
-  }
-}
-
-/* Statistics */
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 12px;
-}
-
-.stat {
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.035);
-  padding: 18px;
-  border-radius: 15px;
-}
-
-.stat strong {
-  display: block;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.2rem;
-  color: var(--cyan);
-}
-
-.stat span {
-  font-size: .83rem;
-  color: var(--muted);
-}
-
-/* Common sections */
-
-section {
-  padding: 55px 0;
-}
-
-.section-head {
-  margin-bottom: 25px;
-}
-
-.kicker {
-  color: var(--cyan);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: .75rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  letter-spacing: -.8px;
-  margin-bottom: 10px;
-}
-
-.section-head p {
-  color: var(--muted);
-  max-width: 700px;
-}
-
-.panel, .card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
-}
-
-/* About */
-
-.about-panel {
-  padding: 28px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
-.detail {
-  padding: 15px;
-  border-radius: 13px;
-  background: rgba(255,255,255,.035);
-  border: 1px solid rgba(255,255,255,.055);
-}
-
-.detail small {
-  display: block;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-
-.detail strong {
-  font-size: 1rem;
-}
-
-/* Skills */
-
-.skill-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.card {
-  padding: 24px;
-  transition: transform .22s, border-color .22s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(182,164,255,.55);
-}
-
-.icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-size: 1.4rem;
-  margin-bottom: 18px;
-  background: linear-gradient(
-    135deg,
-    rgba(182,164,255,.2),
-    rgba(117,231,239,.12)
-  );
-  border: 1px solid var(--line);
-}
-
-.card h3 {
-  font-size: 1.12rem;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: .94rem;
-  color: var(--muted);
-}
-
-.tags {
-  margin-top: 15px;
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-}
-
-.tag {
-  font-size: .77rem;
-  color: #ddd7ff;
-  background: rgba(182,164,255,.09);
-  border: 1px solid rgba(182,164,255,.18);
-  border-radius: 999px;
-  padding: 5px 9px;
-}
-
-/* Project */
-
-.project {
-  padding: 28px;
-}
-
-.project-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.project-label {
-  font-size: .8rem;
-  color: var(--cyan);
-  background: rgba(117,231,239,.08);
-  border: 1px solid rgba(117,231,239,.2);
-  border-radius: 999px;
-  padding: 6px 11px;
-}
-
-.project-desc {
-  max-width: 760px;
-  margin: 12px 0 22px;
-}
-
-.output-buttons {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 18px 0;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-}
-
-.output-buttons button {
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.035);
-  color: var(--muted);
-  padding: 9px 13px;
-  border-radius: 10px;
-  font-size: .86rem;
-  transition: .2s;
-}
-
-.output-buttons button:hover,
-.output-buttons button.active {
-  color: #111327;
-  background: linear-gradient(110deg, var(--purple), var(--cyan));
-  border-color: transparent;
-}
-
-/* Terminal window */
-
-.console {
-  overflow: hidden;
-  border: 1px solid rgba(117,231,239,.22);
-  border-radius: 15px;
-  background: #050813;
-}
-
-.console-head {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 12px 15px;
-  background: rgba(255,255,255,.035);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-
-.traffic {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #ff7b91;
-}
-
-.traffic:nth-child(2) {
-  background: #ffd36f;
-}
-
-.traffic:nth-child(3) {
-  background: #75e7a1;
-}
-
-.console-name {
-  font-size: .78rem;
-  color: var(--muted);
-  margin-left: 7px;
-}
-
-.output-title {
-  color: var(--cyan);
-  font-size: .85rem;
-  font-weight: 700;
-  padding: 14px 18px 0;
-}
-
-.output {
-  padding: 12px 18px 22px;
-  color: var(--green);
-  white-space: pre;
-  overflow-x: auto;
-  min-height: 220px;
-  font: 13px/1.75 Consolas, Monaco, monospace;
-}
-
-.note {
-  font-size: .82rem;
-  color: #8994b3;
-  margin-top: 13px;
-}
-
-/* Contact */
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.contact-card {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.contact-card .icon-box {
-  flex-shrink: 0;
-  margin: 0;
-}
-
-.contact-card a {
-  color: var(--cyan);
-  overflow-wrap: anywhere;
-}
-
-/* Footer */
-
-footer {
-  margin-top: 35px;
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding: 25px 0;
-  text-align: center;
-  color: #8d97b5;
-  font-size: .88rem;
-}
-
-footer span {
-  color: var(--purple);
-}
-
-/* Responsive design */
-
-@media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 65px;
-    gap: 10px;
-  }
-
-  .profile-art {
-    min-height: 300px;
-  }
-
-  .skill-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .fc-one {
-    right: 8%;
-  }
-
-  .fc-two {
-    left: 8%;
-  }
-}
-
-@media (max-width: 560px) {
-  nav {
-    padding: 13px 0;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .links {
-    gap: 2px;
-  }
-
-  .links a {
-    padding: 8px;
-  }
-
-  .hero {
-    padding-top: 45px;
-  }
-
-  .stats {
-    gap: 8px;
-  }
-
-  .stat {
-    padding: 12px;
-  }
-
-  .about-panel,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project {
-    padding: 18px;
-  }
-
-  .output {
-    font-size: 12px;
-    padding: 12px;
-  }
-
-  .float-card {
-    font-size: .78rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>N. Damaris Blessy | Portfolio</title>
+    <meta name="description" content="The personal portfolio of N. Damaris Blessy, Computer Science student interested in Python, cloud computing and data analytics.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #080810;
+            --bg-soft: #10101d;
+            --card: #141424;
+            --purple: #a855f7;
+            --purple-light: #c084fc;
+            --blue: #38bdf8;
+            --white: #f8fafc;
+            --muted: #a1a1b5;
+            --border: rgba(168, 85, 247, 0.22);
+            --gradient: linear-gradient(135deg, #a855f7, #38bdf8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 88%);
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 8, 16, 0.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 76px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--purple-light);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--blue);
+        }
+
+        .nav-button {
+            color: var(--white) !important;
+            padding: 9px 16px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+        }
+
+        /* Hero */
+
+        .hero {
+            position: relative;
+            padding: 105px 0 100px;
+            background:
+                radial-gradient(ellipse at 78% 20%,
+                    rgba(111, 45, 189, 0.20), transparent 38%),
+                radial-gradient(ellipse at 15% 85%,
+                    rgba(14, 165, 233, 0.10), transparent 35%),
+                var(--bg);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.8fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .hero h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.12;
+            letter-spacing: -2px;
+            margin: 25px 0;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 15px;
+            max-width: 570px;
+            line-height: 1.95;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 21px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+        }
+
+        .btn-primary {
+            color: white;
+            background: var(--gradient);
+        }
+
+        .btn-outline {
+            color: var(--white);
+            border: 1px solid #34344b;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Profile card */
+
+        .profile-card {
+            position: relative;
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: linear-gradient(145deg, #18182b, #0e0e19);
+            box-shadow: 0 0 60px rgba(100, 40, 190, 0.10);
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            top: -20px;
+            right: -15px;
+            background: rgba(56, 189, 248, 0.09);
+            filter: blur(30px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            display: grid;
+            place-items: center;
+            border-radius: 22px;
+            background: var(--gradient);
+            color: white;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 27px;
+            font-weight: 700;
+            margin-bottom: 23px;
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.22);
+        }
+
+        .profile-card h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 23px;
+            margin-bottom: 5px;
+        }
+
+        .profile-subtitle {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .line {
+            border: 0;
+            border-top: 1px solid #29293c;
+            margin: 23px 0;
+        }
+
+        .profile-detail {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin: 17px 0;
+        }
+
+        .detail-icon {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background: rgba(168, 85, 247, 0.10);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+        }
+
+        .profile-detail small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .profile-detail strong {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* General sections */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-soft);
+            border-top: 1px solid rgba(255,255,255,0.025);
+            border-bottom: 1px solid rgba(255,255,255,0.025);
+        }
+
+        .section-heading {
+            margin-bottom: 38px;
+        }
+
+        .section-heading h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(31px, 4vw, 43px);
+            letter-spacing: -1px;
+            line-height: 1.3;
+            margin: 13px 0;
+        }
+
+        .section-heading p.description {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .about-highlight {
+            background: linear-gradient(145deg, #211238, #111324);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .about-highlight .big-symbol {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 54px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .about-highlight p {
+            font-size: 18px;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .about-highlight small {
+            display: block;
+            color: var(--blue);
+            margin-top: 22px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 23px;
+        }
+
+        .tag {
+            padding: 7px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: rgba(168, 85, 247, 0.07);
+            color: #d8b4fe;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Academics */
+
+        .academic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .academic-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--card);
+            border: 1px solid #28283e;
+            border-radius: 17px;
+            padding: 30px;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .academic-card:hover,
+        .skill-card:hover,
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--purple);
+        }
+
+        .academic-card::after {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            right: -60px;
+            bottom: -70px;
+            background: rgba(168, 85, 247, 0.13);
+            filter: blur(35px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .academic-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .academic-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.09);
+            border: 1px solid rgba(56, 189, 248, 0.16);
+            font-size: 21px;
+        }
+
+        .academic-badge {
+            padding: 6px 11px;
+            border-radius: 30px;
+            color: var(--blue);
+            background: rgba(56, 189, 248, 0.08);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .academic-card h3 {
+            margin-top: 24px;
+            font-size: 16px;
+        }
+
+        .marks {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 44px;
+            line-height: 1.4;
+            font-weight: 700;
+            margin: 7px 0;
+        }
+
+        .marks-note {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .academic-footnote {
+            color: var(--muted);
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            border: 1px solid #28283e;
+            border-radius: 15px;
+            background: var(--card);
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .skill-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            background: rgba(168, 85, 247, 0.10);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 22px;
+            margin-bottom: 19px;
+        }
+
+        .skill-card h3 {
+            font-size: 15px;
+            margin-bottom: 9px;
+        }
+
+        .skill-card p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.85;
+        }
+
+        /* Project */
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            overflow: hidden;
+            background: var(--card);
+            border: 1px solid #28283e;
+            border-radius: 18px;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .project-visual {
+            display: grid;
+            place-items: center;
+            min-height: 280px;
+            background:
+                radial-gradient(circle at 50% 40%,
+                    rgba(168, 85, 247, 0.23), transparent 48%),
+                linear-gradient(145deg, #19152e, #0c1729);
+            border-right: 1px solid #28283e;
+        }
+
+        .project-symbol {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--blue);
+            text-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
+        }
+
+        .project-content {
+            padding: 32px;
+        }
+
+        .project-label {
+            color: var(--purple-light);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .project-content h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 24px;
+            margin: 12px 0;
+        }
+
+        .project-content p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .project-tech span {
+            color: var(--blue);
+            background: rgba(56, 189, 248, 0.07);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* Contact */
+
+        .contact-box {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 35px;
+            padding: 48px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background:
+                radial-gradient(ellipse at 85% 15%,
+                    rgba(56, 189, 248, 0.13), transparent 40%),
+                linear-gradient(125deg, #1b1030, #111321);
+        }
+
+        .contact-box h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.3;
+            margin: 14px 0;
+        }
+
+        .contact-box p.contact-description {
+            color: var(--muted);
+            font-size: 13px;
+            max-width: 500px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 27px 0;
+            border-top: 1px solid #202033;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer p,
+        footer a {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        footer a:hover {
+            color: var(--blue);
+        }
+
+        /* Responsive layout */
+
+        @media (max-width: 850px) {
+            .navbar {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .profile-card {
+                max-width: 500px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact-box {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 32px;
+            }
+
+            .contact-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                width: 90%;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .academic-grid,
+            .skills-grid,
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-visual {
+                min-height: 170px;
+                border-right: 0;
+                border-bottom: 1px solid #28283e;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .academic-card,
+            .skill-card {
+                padding: 23px;
+            }
+
+            .contact-box {
+                padding: 27px 22px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-  <nav class="container">
-    <a class="logo" href="#home">Damaris<span>.</span></a>
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container navbar">
+            <a href="#home" class="logo">DB<span>.</span></a>
 
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#project">Project</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-</header>
-
-<main>
-
-  <!-- HERO SECTION -->
-  <section class="hero container" id="home">
-    <div>
-      <div class="pill">
-        <span class="dot"></span>
-        B.Sc. Computer Science · 2026–2029
-      </div>
-
-      <h1>
-        Curious mind.<br>
-        <span class="gradient">Future cloud engineer.</span>
-      </h1>
-
-      <p>
-        Hi, I'm <strong>N. Damaris Blessy</strong>, a student at
-        Bishop Heber College who enjoys Python, problem-solving,
-        data analysis, creative editing and discovering new technologies.
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#project">
-          Explore my project <span>↘</span>
-        </a>
-
-        <a class="btn btn-secondary" href="#contact">
-          Let's connect <span>↗</span>
-        </a>
-      </div>
-
-      <div class="stats">
-        <div class="stat">
-          <strong>2026–29</strong>
-          <span>Academic journey</span>
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#academics">Academics</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact" class="nav-button">Contact ↗</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="stat">
-          <strong>Python</strong>
-          <span>Learning & building</span>
+    <main>
+
+        <!-- HOME -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div>
+                    <p class="eyebrow">Computer Science Student</p>
+
+                    <h1>
+                        Hi, I'm<br>
+                        N. Damaris<br>
+                        <span class="gradient-text">Blessy.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A curious Computer Science student passionate
+                        about Python, problem-solving, data analytics,
+                        and emerging technologies. My goal is to build
+                        a career in cloud computing and create meaningful
+                        solutions through technology.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Projects ↗
+                        </a>
+
+                        <a href="#about" class="btn btn-outline">
+                            Discover My Journey
+                        </a>
+                    </div>
+                </div>
+
+                <aside class="profile-card">
+                    <div class="avatar">DB</div>
+
+                    <h2>N. Damaris Blessy</h2>
+                    <p class="profile-subtitle">
+                        B.Sc. Computer Science Undergraduate
+                    </p>
+
+                    <hr class="line">
+
+                    <div class="profile-detail">
+                        <div class="detail-icon">🎓</div>
+                        <div>
+                            <small>Education</small>
+                            <strong>B.Sc. Computer Science</strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail">
+                        <div class="detail-icon">🏛️</div>
+                        <div>
+                            <small>Institution</small>
+                            <strong>Bishop Heber College</strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail">
+                        <div class="detail-icon">☁️</div>
+                        <div>
+                            <small>Career Goal</small>
+                            <strong>Cloud Computing Engineer</strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail">
+                        <div class="detail-icon">📅</div>
+                        <div>
+                            <small>Degree Duration</small>
+                            <strong>2026 – 2029</strong>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container about-grid">
+
+                <div class="about-highlight">
+                    <div class="big-symbol gradient-text">01 /</div>
+
+                    <p>
+                        Learn continuously.
+                        Think creatively.
+                        Build confidently.
+                    </p>
+
+                    <small>MY LEARNING PHILOSOPHY</small>
+                </div>
+
+                <div class="about-text">
+                    <p class="eyebrow">Get to know me</p>
+
+                    <div class="section-heading">
+                        <h2>About <span class="gradient-text">Me.</span></h2>
+                    </div>
+
+                    <p>
+                        I'm N. Damaris Blessy, a first-year B.Sc. Computer
+                        Science student at Bishop Heber College. I enjoy
+                        learning programming, strengthening my logical
+                        thinking, and exploring new technologies.
+                    </p>
+
+                    <p>
+                        I'm working towards a future in cloud computing
+                        while exploring data analytics and creative editing.
+                        I believe that curiosity, consistency, and practical
+                        learning help me grow one step at a time.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Cloud Computing</span>
+                        <span class="tag">Data Analytics</span>
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Technology</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ACADEMICS -->
+        <section class="section section-alt" id="academics">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">My academic journey</p>
+                    <h2>Education & <span class="gradient-text">Marks.</span></h2>
+                    <p class="description">
+                        My educational background and the foundation
+                        I'm building for my computer science journey.
+                    </p>
+                </div>
+
+                <div class="academic-grid">
+
+                    <article class="academic-card">
+                        <div class="academic-top">
+                            <div class="academic-icon">📘</div>
+                            <span class="academic-badge">CLASS 10</span>
+                        </div>
+
+                        <h3>10th Standard</h3>
+                        <p class="marks gradient-text">435</p>
+                        <p class="marks-note">Total marks obtained</p>
+                    </article>
+
+                    <article class="academic-card">
+                        <div class="academic-top">
+                            <div class="academic-icon">🎓</div>
+                            <span class="academic-badge">CLASS 12</span>
+                        </div>
+
+                        <h3>12th Standard</h3>
+                        <p class="marks gradient-text">
+                            444<span style="font-size: 22px;"> / 600</span>
+                        </p>
+                        <p class="marks-note">Total marks obtained</p>
+                    </article>
+
+                </div>
+
+                <p class="academic-footnote">
+                    Currently pursuing B.Sc. Computer Science at
+                    Bishop Heber College (2026–2029).
+                </p>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">My learning toolkit</p>
+                    <h2>Skills & <span class="gradient-text">Interests.</span></h2>
+                    <p class="description">
+                        Technical foundations and creative interests
+                        I'm developing as I continue learning.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🐍</div>
+                        <h3>Python Programming</h3>
+                        <p>
+                            Learning Python fundamentals and writing
+                            programs through regular practice.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🧩</div>
+                        <h3>Problem Solving</h3>
+                        <p>
+                            Developing logical thinking and structured
+                            approaches to programming problems.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">☁️</div>
+                        <h3>Cloud Computing</h3>
+                        <p>
+                            Exploring cloud platforms, infrastructure,
+                            and modern cloud services.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">📊</div>
+                        <h3>Data Analytics</h3>
+                        <p>
+                            Interested in analysing data and finding
+                            useful patterns and insights.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <h3>Creative Editing</h3>
+                        <p>
+                            Exploring visual creativity, editing,
+                            and digital presentation.
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">💡</div>
+                        <h3>Emerging Technologies</h3>
+                        <p>
+                            Curious about AI, software innovation,
+                            and the future of technology.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section section-alt" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">My work</p>
+                    <h2>Featured <span class="gradient-text">Project.</span></h2>
+                    <p class="description">
+                        A showcase of my programming practice and
+                        the projects I develop while learning.
+                    </p>
+                </div>
+
+                <article class="project-card">
+                    <div class="project-visual">
+                        <div class="project-symbol">&lt;/&gt;</div>
+                    </div>
+
+                    <div class="project-content">
+                        <span class="project-label">Programming Project</span>
+
+                        <h3>Student Management System</h3>
+
+                        <p>
+                            A student-focused programming project designed
+                            to practise organising student information and
+                            applying programming logic. Add your actual
+                            features here to describe your implementation.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Programming</span>
+                            <span>Problem Solving</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="container">
+
+                <div class="contact-box">
+                    <div>
+                        <p class="eyebrow">Let's connect</p>
+
+                        <h2>
+                            Let's build something<br>
+                            <span class="gradient-text">meaningful.</span>
+                        </h2>
+
+                        <p class="contact-description">
+                            Interested in technology, cloud computing,
+                            or exchanging ideas? Connect with me on
+                            LinkedIn or send me an email.
+                        </p>
+                    </div>
+
+                    <div class="contact-buttons">
+                        <a
+                            class="btn btn-primary"
+                            href="https://www.linkedin.com/in/damaris-blessy-342b01352"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LinkedIn Profile ↗
+                        </a>
+
+                        <a
+                            class="btn btn-outline"
+                            href="mailto:damarisblessyroy@gmail.com">
+                            ✉ Email Me
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-inner">
+            <p>© 2026 N. Damaris Blessy. All rights reserved.</p>
+            <a href="#home">Back to top ↑</a>
         </div>
-
-        <div class="stat">
-          <strong>Cloud</strong>
-          <span>Career aspiration</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="profile-art" aria-label="Decorative initials artwork">
-      <div class="orb">
-        <div class="initials">DB</div>
-      </div>
-
-      <div class="float-card fc-one">
-        <strong>01 / Project</strong>
-        Student Management
-      </div>
-
-      <div class="float-card fc-two">
-        <strong>Always learning ✦</strong>
-        Code · Create · Grow
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section class="container" id="about">
-    <div class="section-head">
-      <div class="kicker">A little about me</div>
-      <h2>Building my <span class="gradient">next chapter.</span></h2>
-      <p>
-        I'm developing my technical foundation while exploring
-        the technologies that inspire me.
-      </p>
-    </div>
-
-    <div class="panel about-panel">
-      <div class="detail">
-        <small>Full name</small>
-        <strong>N. Damaris Blessy</strong>
-      </div>
-
-      <div class="detail">
-        <small>College</small>
-        <strong>Bishop Heber College</strong>
-      </div>
-
-      <div class="detail">
-        <small>Programme</small>
-        <strong>B.Sc. Computer Science</strong>
-      </div>
-
-      <div class="detail">
-        <small>Career goal</small>
-        <strong>Cloud Computing Engineer</strong>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section class="container" id="skills">
-    <div class="section-head">
-      <div class="kicker">My learning toolkit</div>
-      <h2>Skills I'm <span class="gradient">growing.</span></h2>
-      <p>
-        These are the three skill areas I'm working on
-        and developing over time.
-      </p>
-    </div>
-
-    <div class="skill-grid">
-
-      <article class="card">
-        <div class="icon-box">⌘</div>
-        <h3>Core Technical Skills</h3>
-        <p>
-          Building a strong foundation in programming,
-          logical thinking and solving problems step by step.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">C Programming</span>
-          <span class="tag">Problem Solving</span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="icon-box">◈</div>
-        <h3>Domain-Specific Advanced Skills</h3>
-        <p>
-          Exploring cloud platforms, data analysis and
-          the fast-changing world of technology.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Cloud Computing</span>
-          <span class="tag">Data Analysis</span>
-          <span class="tag">New Technologies</span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="icon-box">✳</div>
-        <h3>Crucial Workplace &amp; Soft Skills</h3>
-        <p>
-          Strengthening communication, collaboration,
-          creativity and the ability to adapt and learn.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Teamwork</span>
-          <span class="tag">Editing</span>
-          <span class="tag">Adaptability</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- PROJECT SECTION -->
-  <section class="container" id="project">
-    <div class="section-head">
-      <div class="kicker">Featured work · 01</div>
-      <h2>My first <span class="gradient">project.</span></h2>
-      <p>A sample-output showcase for my C programming project.</p>
-    </div>
-
-    <div class="panel project">
-
-      <div class="project-top">
-        <div>
-          <h3>Student Management System</h3>
-          <p style="margin-top:5px;color:var(--muted)">
-            A console-based C application for managing student records.
-          </p>
-        </div>
-
-        <span class="project-label">C Programming</span>
-      </div>
-
-      <p class="project-desc">
-        The program includes administrator login, student registration,
-        examination marks and results, fee management, student search,
-        reports and file management. Choose a module to preview its
-        sample console output below.
-      </p>
-
-      <div class="output-buttons" id="outputButtons">
-        <button type="button" data-output="login"
-          class="active" aria-pressed="true">Login</button>
-
-        <button type="button" data-output="menu"
-          aria-pressed="false">Main Menu</button>
-
-        <button type="button" data-output="student"
-          aria-pressed="false">Registration</button>
-
-        <button type="button" data-output="exam"
-          aria-pressed="false">Exam Result</button>
-
-        <button type="button" data-output="fee"
-          aria-pressed="false">Fee Status</button>
-
-        <button type="button" data-output="search"
-          aria-pressed="false">Search</button>
-
-        <button type="button" data-output="report"
-          aria-pressed="false">Reports</button>
-
-        <button type="button" data-output="file"
-          aria-pressed="false">File Management</button>
-      </div>
-
-      <div class="console">
-        <div class="console-head">
-          <span class="traffic"></span>
-          <span class="traffic"></span>
-          <span class="traffic"></span>
-          <span class="console-name">student-management-system.exe</span>
-        </div>
-
-        <div class="output-title" id="outputTitle">
-          Login — sample output
-        </div>
-
-        <pre class="output" id="output" aria-live="polite"></pre>
-      </div>
-
-      <p class="note">
-        Sample values are illustrative. This website previews output
-        examples; it does not execute the C program or read its data files.
-      </p>
-
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section class="container" id="contact">
-    <div class="section-head">
-      <div class="kicker">Say hello</div>
-      <h2>Let's <span class="gradient">connect.</span></h2>
-      <p>
-        I'm excited to learn, collaborate and explore opportunities
-        in technology.
-      </p>
-    </div>
-
-    <div class="contact-grid">
-
-      <div class="card contact-card">
-        <div class="icon-box">✉</div>
-        <div>
-          <h3>Email me</h3>
-          <p>
-            <a href="mailto:damarisblessyroy@gmail.com">
-              damarisblessyroy@gmail.com
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <div class="card contact-card">
-        <div class="icon-box">↗</div>
-        <div>
-          <h3>LinkedIn</h3>
-          <p>
-            <a
-              href="https://www.linkedin.com/in/damaris-blessy-342b01352/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Visit my LinkedIn profile
-            </a>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-    Designed with curiosity by
-    <span>N. Damaris Blessy</span> · © 2026
-  </div>
-</footer>
-
-<script>
-const samples = {
-
-  login: `==============================
-   STUDENT MANAGEMENT SYSTEM
-==============================
-            LOGIN
-
-Enter username: admin
-Enter password: ********
-
-Login successful!
-
-Press Enter to continue...`,
-
-  menu: `=== Student Management System ===
- 1. Login (already logged in)
- 2. Student Registration
- 3. Examination Module
- 4. Fee Management
- 5. Search Module
- 6. Report Module
- 7. File Management
- 8. Exit
-
-Enter your choice: _`,
-
-  student: `=== Student Registration ===
- 1. Add new student
- 2. View all students
- 3. Update student
- 4. Delete student
- 0. Back
-
-Enter your choice: 1
-
-Enter roll number: 101
-Enter name: Anu
-Enter department: Computer Science
-Enter year (1-3): 1
-Enter phone number: 9876543210
-Enter total fee amount: 25000
-
-Student registered successfully.`,
-
-  exam: `=== Examination Module ===
-Enter roll number: 101
-
---- Result for Anu (Roll 101) ---
-  Programming in C     :  85
-  Mathematics          :  90
-  Data Structures      :  88
-  Database Systems     :  82
-  English              :  91
-  --------------------------------
-  Total      : 436 / 500
-  Percentage : 87.20%
-  Grade      : A  (PASS)`,
-
-  fee: `=== Fee Management ===
-Enter roll number: 101
-
-  Name      : Anu
-  Total fee : 25000.00
-  Paid      : 10000.00
-  Due       : 15000.00
-  Status    : PENDING`,
-
-  search: `=== Search Module ===
- 1. Search by roll number
- 2. Search by name
- 3. Search by department
- 0. Back
-
-Enter your choice: 1
-Enter roll number: 101
-
-  Roll No    : 101
-  Name       : Anu
-  Department : Computer Science
-  Year       : 1
-  Phone      : 9876543210`,
-
-  report: `=== Exam Result Report ===
-
-Rank  Roll     Name     Total   Percent  Grade
-------------------------------------------------
-1     101      Anu      436     87.20%   A
-
-Appeared: 1
-Passed: 1
-Failed: 0`,
-
-  file: `=== File Management ===
- 1. Save data to files
- 2. Reload data from files
- 3. Export student list to text file (students.txt)
- 0. Back
-
-Enter your choice: 1
-
-Data saved.
-
-Press Enter to continue...`
-};
-
-const titles = {
-  login: "Login — sample output",
-  menu: "Main Menu — sample output",
-  student: "Student Registration — sample output",
-  exam: "Examination Result — sample output",
-  fee: "Fee Status — sample output",
-  search: "Search Module — sample output",
-  report: "Exam Result Report — sample output",
-  file: "File Management — sample output"
-};
-
-const output = document.getElementById("output");
-const outputTitle = document.getElementById("outputTitle");
-const buttons = document.querySelectorAll("[data-output]");
-
-function showOutput(type) {
-  output.textContent = samples[type];
-  outputTitle.textContent = titles[type];
-
-  buttons.forEach(button => {
-    const active = button.dataset.output === type;
-
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
-}
-
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    showOutput(button.dataset.output);
-  });
-});
-
-showOutput("login");
-</script>
+    </footer>
 
 </body>
 </html>
